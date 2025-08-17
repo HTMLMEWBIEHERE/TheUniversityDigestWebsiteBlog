@@ -1,0 +1,1598 @@
+/* General Styles */
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Reset default styles for consistent rendering */
+*, *::before, *::after {
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+}
+
+/* Basic container setup */
+.main-content {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 auto; 
+}
+
+
+/* Hero Carousel Container - Remove any padding or margins */
+.hero-carousel-container {
+    width: 100vw;
+    height: 600px;
+    margin: -20px 0 0 0; /* Adjust to remove space */
+    padding: 0;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    overflow: hidden;
+}
+
+
+/* Hero Carousel */
+.hero-carousel {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+/* Hero Carousel inner container */
+.hero-carousel-inner {
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+
+/* Hero Carousel images */
+.hero-carousel-inner img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+/* Hero Carousel item */
+.hero-carousel-item {
+    min-width: 100%;
+    height: 100%;
+    display: none;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.hero-carousel-item.active {
+    display: block;
+    opacity: 1;
+    animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(1.05);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Hero Carousel images */
+.hero-carousel-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* Hero Carousel controls */
+.hero-carousel-control {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.5);
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 30px;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    z-index: 10;
+    opacity: 0;
+    transition: opacity 0.3s ease, background 0.3s ease, transform 0.3s ease;
+}
+
+.hero-carousel:hover .hero-carousel-control {
+    opacity: 0.8;
+}
+
+.hero-carousel-control:hover {
+    opacity: 1;
+    background: rgba(0,0,0,0.7);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.prev {
+    left: 20px;
+}
+
+.next {
+    right: 20px;
+}
+
+/* Hero Carousel indicators */
+.hero-carousel-indicators {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 12px;
+    z-index: 10;
+}
+
+.hero-indicator {
+    width: 14px;
+    height: 14px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border: 2px solid #fff;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.hero-indicator.active {
+    background-color: #fff;
+    transform: scale(1.2);
+}
+
+.hero-indicator:hover {
+    transform: scale(1.2);
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+/* Purpose Card - with animations and fixed dimensions */
+.purpose-card {
+    background-color: #4F0003;
+    color: white;
+    padding: 40px;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 1200px;
+    margin: -80px auto 40px;
+    position: relative;
+    z-index: 20;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    animation: slideUp 1s ease-out forwards;
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.purpose-title {
+    font-size: 2.4rem;
+    margin-bottom: 20px;
+    color: #EEA61A;
+    text-align: center;
+    font-weight: bold;
+    animation: fadeInTitle 1.2s ease-out forwards;
+}
+
+@keyframes fadeInTitle {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.purpose-text {
+    font-size: 1.2rem;
+    line-height: 1.7;
+    margin-bottom: 25px;
+    animation: fadeInText 1.4s ease-out forwards;
+}
+
+@keyframes fadeInText {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Info Icon Text Styling - with animations */
+.info-icon-text {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 30px;
+    flex-wrap: wrap;
+    animation: fadeInIcons 1.6s ease-out forwards;
+}
+
+@keyframes fadeInIcons {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.info-icon-text i {
+    font-size: 2rem;
+    margin-right: 12px;
+    color: #EEA61A;
+    transition: transform 0.3s ease;
+}
+
+.info-icon-text span {
+    font-size: 1.1rem;
+    margin-right: 25px;
+    line-height: 1.4;
+}
+
+.info-icon-text i:hover {
+    transform: scale(1.2);
+}
+
+/* About Card - with animations and fixed dimensions */
+.about-card {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto auto;
+    align-items: center;
+    justify-content: center;
+    padding: 50px;
+    margin: 60px auto;
+    background-color: #ffffff;
+    border-radius: 12px;
+    width: 80%;
+    max-width: 1200px;
+    gap: 40px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 1s ease-out;
+}
+
+/* About Image - with animation */
+.about-image {
+    grid-column: 1;
+    grid-row: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: pulse 3s infinite alternate;
+}
+
+@keyframes pulse {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(1.05);
+    }
+}
+
+.about-image img {
+    width: 240px;
+    height: auto;
+    border-radius: 12px;
+    transition: transform 0.5s ease;
+}
+
+.about-image img:hover {
+    transform: rotate(5deg);
+}
+
+/* About Content - with animations */
+.about-content {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    text-align: left;
+    align-self: center;
+    animation: slideInRight 1s ease-out;
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.about-title {
+    font-size: 2.4rem;
+    margin-bottom: 25px;
+    color: #4F0003;
+    font-weight: bold;
+}
+
+.about-text {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+/* About Button - with animations */
+.about-button {
+    display: inline-block;
+    padding: 14px 28px;
+    font-size: 1.2rem;
+    color: #ffffff;
+    background-color: #4F0003;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(79, 0, 3, 0.3);
+}
+
+.about-button:hover {
+    background-color: #3d0002;
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(79, 0, 3, 0.4);
+}
+
+/* Card container */
+.card {
+    width: 100vw;             /* Make the card take full width of its container */
+    max-width: 400px;        /* Limit maximum width of the card */
+    margin: 0 auto;          /* Center the card horizontally */
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Card image */
+.card img {
+    width: 100%;             /* Make the image fit the width of the card */
+    height: 100%;            /* Maintain the aspect ratio of the image */
+    border-radius: 8px;
+}
+
+/* Card content */
+.card .content {
+    padding-top: 15px;
+}
+
+/* Card title */
+.card .title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/* Card description */
+.card .description {
+    font-size: 1rem;
+    color: #555;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    .card {
+        max-width: 90%;       /* On small screens, make card take up 90% of screen width */
+        padding: 15px;
+    }
+
+    .card .title {
+        font-size: 1.3rem;    /* Adjust title size for smaller screens */
+    }
+
+    .card .description {
+        font-size: 0.9rem;    /* Adjust description size for smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .card {
+        max-width: 95%;       /* On very small screens, make card take up 95% of screen width */
+        padding: 10px;
+    }
+
+    .card .title {
+        font-size: 1.1rem;    /* Further adjust title size for smaller screens */
+    }
+
+    .card .description {
+        font-size: 0.85rem;   /* Adjust description size for very small screens */
+    }
+}
+
+
+
+/* Overlapping Card */
+.card-1 {
+    background-color: #4F0003;
+    color: white;
+    padding: 20px; /* Adjusted padding */
+    border-radius: 8px;
+    /*z-index: 20;*/ /* Removed z-index */
+    width: 90%;
+    text-align: left;
+    box-sizing: border-box;
+    /*position: relative;*/  /*Take out from absolute positioning to allow content to take its place*/
+    /*transform: translate(0,0); /*Take out from absolute positioning to allow content to take its place*/
+    margin-top: 20px; /* Add some top margin when below the carousel */
+}
+
+/* Icon Text Styling */
+.icon-text {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+    flex-wrap: wrap; /* Allow wrapping */
+}
+
+.icon-text i {
+    margin-right: 5px;
+}
+
+.icon-text span {
+    font-size: 12px; /* Adjusted font size */
+    margin-right: 10px;/* Adjusted font size */
+}
+
+/* New Card */
+/* New Card with Centered Grid Layout */
+.card-2 {
+    display: grid;
+    grid-template-columns: auto 1fr; /* Two columns: Logo (auto), Content (flexible) */
+    grid-template-rows: auto auto; /* Two rows */
+    align-items: center; /* Align items in center */
+    justify-content: center; /* Center the grid horizontally */
+    padding: 20px;
+    margin: 20px auto; /* Center card horizontally */
+    background-color: #ffffff;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 900px; /* Slightly wider for better layout */
+    gap: 20px; /* Spacing between elements */
+    text-align: center;
+}
+
+/* Logo Image in First Column, First Row */
+.card-2 .card-image {
+    grid-column: 1;
+    grid-row: 1;
+    display: flex;
+    justify-content: center; /* Center the image in the column */
+    align-items: center;
+}
+
+/* Centered Logo */
+.card-2 .card-image img {
+    width: 180px; /* Increased size */
+    height: auto;
+    border-radius: 12px;
+}
+
+/* Content Section */
+.card-2 .card-content {
+    grid-column: 2;
+    grid-row: 1 / span 2; /* Spans both rows */
+    text-align: center; /* Center content */
+    align-self: center;
+}
+
+/* Read More Button */
+.card-2 .read-more-button {
+    grid-column: 2;
+    grid-row: 2;
+    justify-self: center; /* Center button */
+    margin-top: 10px;
+}
+
+/* Button Styling */
+.read-more-button {
+    display: inline-block;
+    padding: 12px 24px;
+    font-size: 18px;
+    color: #ffffff;
+    background-color: #4F0003;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    text-align: center;
+}
+
+/* Hover Effect */
+.read-more-button:hover {
+    background-color: #3d0002;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .main-content {
+        margin-top: 110px; /* Ensures content is pushed down */
+        padding: 20px;
+    }
+    
+    .card-2 {
+        grid-template-columns: 1fr; /* Single column layout */
+        grid-template-rows: auto auto auto;
+        text-align: center;
+    }
+
+    .card-2 .card-image {
+        grid-column: 1;
+        grid-row: 1;
+        justify-self: center; /* Center the image */
+    }
+
+    .card-2 .card-image img {
+        width: 200px; /* Slightly larger for mobile */
+    }
+
+    .card-2 .card-content {
+        grid-column: 1;
+        grid-row: 2;
+        text-align: center;
+    }
+
+    .card-2 .read-more-button {
+        grid-column: 1;
+        grid-row: 3;
+        justify-self: center;
+    }
+}
+
+
+/* Divider for Additional Card */
+.card-3-divider {
+    background-color: #f5f5f5;
+    padding: 20px;  /* Adjusted padding */
+    margin: 20px 0; /* Adjusted margin */
+    border-radius: 8px;   /*give a slight curve to make it more appealing*/
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /*Added subtle shadow to make the card appealing*/
+}
+
+/* Additional Card with Four Smaller Cards */
+/* Articles Header */
+.articles-header {
+    text-align: center;
+    font-size: 35px;     /*Adjusted font size*/
+    color: #EEA61A;
+    margin-bottom: 20px;    /*Adjusted font size*/
+    border-bottom: 2px solid #EEA61A;
+    width: 100%;
+    padding-bottom: 5px;  /*Adjusted font size*/
+}
+
+/* Divider for Additional Card */
+.card-3-divider {
+    background-color: #4f0003;
+    padding: 20px;  /* Adjusted padding */
+    margin: 20px 0; /* Adjusted margin */
+    border-radius: 8px;   /*give a slight curve to make it more appealing*/
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Additional Card with Four Smaller Cards */
+.card-3 {
+    display: flex;
+    flex-wrap: wrap;     /* to align the cards in a new row if necessary*/
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.smaller-card {
+    flex: 1 1 calc(50% - 20px);   /*to allign to 2 items if space is not enought to align to 1 item*/
+    margin: 10px;
+    text-align: center;
+    background-color: #ffffff;
+    padding: 15px;  /* Adjusted padding */
+    border-radius: 8px;   /*give a slight curve to make it more appealing*/
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.smaller-card i {
+    font-size: 20px;     /*Adjusted font size*/
+    margin-bottom: 5px;   /*Adjusted margin*/
+    color: #EEA61A;
+}
+
+.smaller-card h4 {
+    font-size: 16px;     /*Adjusted font size*/
+    margin-bottom: 5px;   /*Adjusted margin*/
+    color: #333;
+}
+
+.smaller-card p {
+    font-size: 14px;    /*Adjusted font size*/
+    margin-bottom: 10px;   /*Adjusted margin*/
+    color: #666;
+}
+
+.explore-button {
+    display: inline-block;
+    padding: 8px 16px;  /* Adjusted padding */
+    font-size: 14px;    /*Adjusted font size*/
+    color: #ffffff;
+    background-color: #EEA61A;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.explore-button:hover {
+    background-color: #3d0002;
+}
+
+/* Announcements Card */
+/* Style for the card container */
+.card-announcements-container {
+    width: 100%;
+    display: flex;
+    justify-content: left;
+    margin-bottom: 20px;
+}
+
+/* Style for the individual announcement card */
+.card-announcements {
+    width: 100%;
+    border-radius: 8px;
+    overflow: hidden; /* To make sure content doesn't overflow */
+    margin: 20px;
+}
+
+/* Announcement card header style */
+.card-announcements-header {
+    background-color: #4F0003;
+    color: #EEA61A;
+    font-weight:bold;
+    padding: 15px;
+    font-size: 35px;
+    text-align: center;
+}
+
+
+/* Announcement card body style */
+.card-announcements-body {
+    padding: 20px;
+}
+
+/* Style for the title */
+.card-announcements-title {
+    font-size: 22px;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+/* Style for the content paragraph */
+.card-announcements-content {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+/* Style for the footer */
+.card-announcements-footer {
+    font-size: 14px;
+    color: #777;
+    text-align: right;
+}
+
+/* Style for the image */
+.card-announcements-image {
+    width: 100%;
+    height: 400px; /* Fixed height */
+    object-fit: cover; /* Ensures image covers the area without stretching */
+    object-position: center; /* Centers the image */
+    border-radius: 8px; /* Optional: adds rounded corners */
+}
+
+/* Button Style */
+.btn-announcement {
+    display: inline-block;
+    background-color: #EEA61A;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 10px;
+    margin-bottom: 50px;
+}
+
+.btn-announcement:hover {
+    background-color: #a77003;
+}
+
+
+/* Centering the card using a container */
+.card-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90vh; /* Full screen height */
+}
+
+/* Card Styling */
+.card {
+    width: 99%; /* Longer width */
+    height: 500px;
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out;
+    text-align: center;
+}
+
+/* Hover Effect */
+.card:hover {
+    transform: translateY(-5px);
+}
+
+/* Card Header */
+.card-header {
+    background: #4F0003;
+    color: #EEA61A;
+    font-size: 35px;
+    padding: 15px;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* Card Body */
+.card-body {
+    padding: 20px;
+}
+
+/* Card Title */
+.card-title {
+    font-size: 1.6em;
+    margin-bottom: 10px;
+    color: #4F0003;
+}
+
+/* Card Text */
+.card-text {
+    font-size: 1.1em;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Button */
+.btn {
+    display: inline-block;
+    padding: 12px 20px;
+    background: #EEA61A;
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background 0.3s ease-in-out;
+}
+
+/* Button Hover */
+.btn:hover {
+    background: #D98A15;
+}
+
+.card-img4 {
+    margin-top: 15px;
+    width: 100%;
+    height: auto;
+    max-height: 300px;
+    object-fit: cover;
+}
+
+/* Magazine Carousel Container */
+/* Container for the carousel */
+.magazine-carousel-container {
+    font-size: 25px;
+    position: relative;
+    width: 100%;
+    height: auto;
+    margin: 0;
+    overflow: hidden;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 10px;
+}
+
+/* Title of the carousel */
+.magazine-carousel-container h2 {
+    background: #4F0003;
+    color: #EEA61A;
+    font-weight: bold;
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+/* Main carousel wrapper */
+.magazine-carousel {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    width: 100%;
+    height: auto;
+    padding: 10px 0;
+}
+
+/* Track holding magazine cards */
+.magazine-track {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    gap: 20px;
+}
+
+/* Individual magazine card */
+.magazine-card {
+    scroll-snap-align: start;
+    width: 250px;
+    min-width: 250px;
+    max-width: 250px;
+    height: auto;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+    overflow: hidden;
+    background: #fff;
+    padding: 0;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+/* Image styling */
+.magazine-card img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 15px;
+    transition: opacity 0.3s ease-in-out;
+}
+
+/* Title and description styles */
+.magazine-card h4, .magazine-card p {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    color: black;
+    padding: 10px;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+/* Hover effects for card */
+.magazine-card:hover img {
+    opacity: 0.3;
+}
+
+.magazine-card:hover h4, .magazine-card:hover p {
+    opacity: 1;
+}
+
+/* Hover effect for title */
+.magazine-card h4 {
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.magazine-card:hover h4 {
+    opacity: 1;
+}
+
+/* Link styling */
+.magazine-link {
+    position: absolute;
+    bottom: 10px;
+    background-color: #EEA61A;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.magazine-link:hover {
+    background-color: #4F0003;
+}
+
+/* Carousel control buttons */
+.magazine-carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: black;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 24px;
+    border-radius: 5px;
+    background: none;
+}
+
+.prev-magazine-btn {
+    left: 10px;
+}
+
+.next-magazine-btn {
+    right: 10px;
+}
+
+.magazine-carousel-btn:hover {
+    background: none;
+    color: black;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .magazine-card {
+        width: 220px;
+        min-width: 220px;
+        max-width: 220px;
+    }
+}
+
+@media (max-width: 992px) {
+    .magazine-card {
+        width: 200px;
+        min-width: 200px;
+        max-width: 200px;
+    }
+}
+
+@media (max-width: 768px) {
+    .magazine-card {
+        width: 180px;
+        min-width: 180px;
+        max-width: 180px;
+    }
+}
+
+@media (max-width: 576px) {
+    .magazine-card {
+        width: 100%;
+        min-width: 100%;
+        max-width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .magazine-carousel-btn {
+        font-size: 18px;
+        padding: 8px;
+    }
+}
+
+
+/* Update logo text styling in userheader.css */
+
+/* Logo container */
+.logo-container {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+}
+
+.logo-container a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.site-logo {
+    height: 60px;
+    margin-right: 10px;
+}
+
+/* Updated logo text styling */
+.logo-text h2 {
+    font-family: "Trajan Pro", "Cinzel", serif; /* Trajan Pro with fallbacks */
+    font-size: 22px; /* Restored larger size */
+    font-weight: 700;
+    color: #EEA61A; /* Gold color */
+    letter-spacing: 1px;
+    margin: 0;
+    text-transform: uppercase;
+}
+
+/* Increase contrast with text shadow */
+.logo-text h2 {
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+}
+
+@media (max-width: 1024px) {
+    .logo-text h2 {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .site-logo {
+        height: 50px;
+    }
+    
+    .logo-text h2 {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 600px) {
+    .site-logo {
+        height: 45px;
+    }
+    
+    .logo-text h2 {
+        font-size: 16px;
+    }
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .main-content {
+        margin-top: 110px; /* Ensures content is pushed down */
+        padding: 20px;
+    }
+
+    .carousel-container {
+        flex-direction: column;  /* Stack the carousel and card-1 */
+        height: auto; /* let content dictate*/
+    }
+
+    .carousel {
+        height: auto;   /* let content dictate*/
+    }
+
+    .carousel-inner {
+        height: auto;   /* let content dictate*/
+    }
+
+    .carousel-item {
+        height: auto;   /* let content dictate*/
+    }
+
+    .carousel-item img {
+        max-height: 50vh;   /* adjust to better visual*/
+    }
+
+    .card-1 {
+       /* position: relative;*/
+       /* transform:none;  *//*Take out absolute positioning to allow content to take its place*/
+        left: auto; /*Reset*/
+        bottom: auto; /*Reset*/
+       /* width: 95%;*//*Take out absolute positioning to allow content to take its place*/
+        margin-top: 20px; /*Add to create margin*/
+    }
+
+     .icon-text span {
+        font-size: 12px;
+        margin-right: 20px;
+    }
+
+     .card-2 {
+        flex-direction: column;   /*Stack the content*/
+        padding: 20px;/*Reduce padding for small screen */
+        margin: 20px 0;   /*Reduce margin for small screen */
+    }
+
+     /*Adjusted Media Queries to allow to cards to scroll and have it take its place*/
+    @media (max-width: 576px) {
+        /*Carousel related*/
+        .carousel-control {
+            font-size: 30px; /* Reduce the font for better small screen*/
+        }
+        .indicator {
+            width: 8px;    /* Reduce size to not make it to over crowded*/
+            height: 8px;   /* Reduce size to not make it to over crowded*/
+        }
+        .icon-text span {
+            font-size: 10px;    /* Adjusted font size*/
+        }
+    }
+
+     /* Carousel related CSS*/
+    .carousel-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        overflow: hidden;
+    }
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 992px) {
+    .hero-carousel-container, .hero-carousel {
+        height: 500px;
+    }
+    
+    .purpose-title, .about-title {
+        font-size: 2rem;
+    }
+    
+    .purpose-text, .about-text {
+        font-size: 1.1rem;
+    }
+    
+    .purpose-card, .about-card {
+        width: 90%;
+        padding: 35px;
+    }
+    
+    .about-image img {
+        width: 200px;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-carousel-container, .hero-carousel {
+        height: 400px;
+    }
+    
+    .about-card {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto;
+        text-align: center;
+        padding: 30px;
+    }
+    
+    .about-image {
+        grid-column: 1;
+        grid-row: 1;
+        justify-self: center;
+        margin-bottom: 25px;
+    }
+    
+    .about-content {
+        grid-column: 1;
+        grid-row: 2;
+        text-align: center;
+        animation: slideInUp 1s ease-out;
+    }
+    
+    @keyframes slideInUp {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    
+    .purpose-title, .about-title {
+        font-size: 1.8rem;
+    }
+    
+    .purpose-text, .about-text {
+        font-size: 1.05rem;
+    }
+    
+    .info-icon-text {
+        justify-content: space-around;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero-carousel-container, .hero-carousel {
+        height: 350px;
+    }
+    
+    .hero-carousel-control {
+        width: 40px;
+        height: 40px;
+        font-size: 24px;
+    }
+    
+    .hero-indicator {
+        width: 12px;
+        height: 12px;
+    }
+    
+    .purpose-card, .about-card {
+        padding: 25px;
+        width: 95%;
+    }
+    
+    .purpose-title, .about-title {
+        font-size: 1.6rem;
+    }
+    
+    .purpose-text, .about-text {
+        font-size: 1rem;
+        line-height: 1.6;
+    }
+    
+    .info-icon-text {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .info-icon-text i {
+        font-size: 1.6rem;
+        margin-bottom: 12px;
+    }
+    
+    .info-icon-text span {
+        font-size: 1rem;
+        margin-bottom: 20px;
+    }
+    
+    .about-button {
+        padding: 12px 24px;
+        font-size: 1.1rem;
+    }
+    
+    .about-image img {
+        width: 160px;
+    }
+}
+
+/* Tejido Section */
+.tejido-header {
+    background-color: #4F0003;
+    color: #EEA61A;
+    text-align: center;
+    border-radius: 8px;
+    padding: 0.20rem; /* Still small padding */
+    margin-bottom: 10px;
+    overflow: hidden; /* Prevents any overflow if text is big */
+}
+
+.tejido-header h2 {
+    background: #4F0003;
+    color: #EEA61A;
+    font-weight: bold;
+    width: 100%;
+    font-size: 2rem; /* 🎯 Font size bigger (about 32px) */
+    line-height: 1; /* Keeps text tight vertically */
+    margin: 0; /* Remove default margin to avoid extra height */
+    padding: 10px; /* Keep nice inside padding */
+    border-radius: 5px;
+}
+
+
+/* Card Wrapper */
+.tejido-container-wrapper {
+    width: 100%; /* Wider card within the container */
+    max-width: 1400px;
+    margin: 0 auto;
+    height: auto;
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+}
+
+/* Horizontal Scroll Container with Overlapping Cards inside the card */
+.tejido-container {
+    width: 100%; /* Use full width of the card */
+    padding: 0 40px;
+    overflow-x: auto;
+    white-space: nowrap;
+    display: flex;
+    align-items: flex-end;
+    gap: 0;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+}
+.tejido-container::-webkit-scrollbar {
+    display: none;
+}
+
+/* Individual Tejido Card Styles */
+.tejido-card {
+    flex: 0 0 auto;
+    width: 220px;
+    margin-left: -40px; /* Creates the overlap */
+    background-color: #fff;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+    z-index: 1;
+}
+.tejido-card:first-child {
+    margin-left: 0;
+}
+.tejido-card:hover {
+    transform: scale(1.08);
+    z-index: 5;
+}
+
+/* Image Styling */
+.tejido-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: 16px;
+}
+
+/* Alternating Heights for a Dynamic Feel */
+.tejido-card:nth-child(1) { height: 340px; }
+.tejido-card:nth-child(2) { height: 320px; }
+.tejido-card:nth-child(3) { height: 340px; }
+.tejido-card:nth-child(4) { height: 300px; }
+.tejido-card:nth-child(5) { height: 330px; }
+.tejido-card:nth-child(6) { height: 310px; }
+.tejido-card:nth-child(7) { height: 340px; }
+
+.tejido-button-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    width: 100%;
+}
+
+.tejido-view-button {
+    display: inline-block;
+    background-color: #4F0003;
+    color: #EEA61A;
+    padding: 16px 36px; /* Bigger button */
+    font-size: 1.2rem;   /* Bigger text */
+    font-weight: 800;    /* Bolder */
+    text-align: center;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(79, 0, 3, 0.2);
+}
+
+.tejido-view-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(79, 0, 3, 0.3);
+    background-color: #690004;
+}
+
+/* Prevent Horizontal Scroll on Body */
+body {
+    overflow-x: hidden;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .teijdo-container {
+        padding: 0 20px;
+    }
+    .teijdo-card {
+        width: 160px;
+        margin-left: -30px;
+    }
+    .teijdo-card:nth-child(1) { height: 260px; }
+    .teijdo-card:nth-child(2) { height: 220px; }
+    .teijdo-card:nth-child(3) { height: 240px; }
+    .teijdo-card:nth-child(4) { height: 200px; }
+    .teijdo-card:nth-child(5) { height: 230px; }
+    .teijdo-card:nth-child(6) { height: 210px; }
+    .teijdo-card:nth-child(7) { height: 240px; }
+}
+
+
+/* Announcements Section - Card Style Container */
+.announcements-section {
+    width: 100%;
+    max-width: 1200px;
+    margin: 50px auto;
+    padding: 0 20px;
+}
+
+/* Outer card container with shadow */
+.announcement-card-wrapper {
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(79, 0, 3, 0.15);
+    overflow: hidden;
+    padding-bottom: 30px;
+    margin-bottom: 40px;
+}
+
+/* Card header */
+.announcement-card-wrapper .card-announcements-header {
+    background-color: #4F0003;
+    color: #EEA61A;
+    font-weight: bold;
+    padding: 20px 30px;
+    font-size: 35px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* Style for the card container */
+.card-announcements-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 30px;
+    gap: 30px;
+}
+
+/* Style for the individual announcement card */
+.card-announcements {
+    width: 100%;
+    border-radius: 8px;
+    border: 1px solid #eaeaea;
+    background-color: #f9f9f9;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-announcements:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
+}
+
+/* Announcement card body style */
+.card-announcements-body {
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Style for the title */
+.card-announcements-title {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #4F0003;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* Style for the content paragraph */
+.card-announcements-content {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 20px;
+    line-height: 1.8;
+    text-align: justify;
+}
+
+/* Style for the image */
+.card-announcements-image {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 15px 0;
+}
+
+/* Style for the footer */
+.card-announcements-footer {
+    font-size: 14px;
+    color: #666;
+    text-align: right;
+    width: 100%;
+    border-top: 1px solid #eee;
+    padding-top: 15px;
+    margin-top: 15px;
+}
+
+/* Button container to center the button */
+.announcement-button-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+/* Button Style */
+.btn-announcement {
+    display: inline-block;
+    background-color: #4F0003;
+    color: #EEA61A;
+    padding: 12px 25px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(79, 0, 3, 0.2);
+}
+
+.btn-announcement:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(79, 0, 3, 0.3);
+    background-color: #690004;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .announcement-card-wrapper {
+        padding-bottom: 20px;
+    }
+    
+    .announcement-card-wrapper .card-announcements-header {
+        padding: 15px;
+        font-size: 28px;
+    }
+    
+    .card-announcements-container {
+        padding: 0 15px;
+    }
+}
+
+@media (max-width: 576px) {
+    .card-announcements-title {
+        font-size: 20px;
+    }
+    
+    .card-announcements-image {
+        height: 300px;
+    }
+}
+
+/* Magazine button container */
+.magazine-button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 25px;
+    width: 100%;
+}
+
+/* Magazine button styling */
+.btn-magazine {
+    display: inline-block;
+    background-color: #4F0003;
+    color: #EEA61A;
+    padding: 12px 25px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(79, 0, 3, 0.2);
+}
+
+.btn-magazine:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(79, 0, 3, 0.3);
+    background-color: #690004;
+}

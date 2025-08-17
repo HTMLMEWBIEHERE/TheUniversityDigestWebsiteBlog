@@ -1,0 +1,698 @@
+/* ========== FONT IMPORTS ========== */
+@font-face {
+    font-family: 'Trajan Pro';
+    src: url('../fonts/TrajanPro-Regular.ttf') format('truetype'),
+         url('../fonts/TrajanPro-Regular.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* ========== RESET ========== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* ========== HEADER LAYOUT ========== */
+header {
+    width: 100%;
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 99;
+    background: #4F0003;
+    padding: 0 20px;
+}
+
+/* Logo Section */
+header .logo-container {
+    display: flex;
+    align-items: center;
+    flex: 0 0 25%;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+header .logo-container a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+header .logo-container img {
+    height: 80px; 
+    width: auto; 
+    object-fit: contain;
+}
+
+header .logo {
+    font-family: 'Trajan Pro', 'Cinzel', serif;
+    color: #EEA61A;
+    margin-left: 10px;
+    text-transform: uppercase;
+    font-size: 1em; 
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+/* Specific h3 styling within logo */
+header .logo h3 {
+    font-family: 'Trajan Pro', 'Cinzel', serif;
+    color: #EEA61A;
+    font-size: 22px; /* Increased size */
+    font-weight: 700;
+    margin: 0;
+    padding: 0;
+    letter-spacing: 1px;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5); /* Add subtle shadow for better contrast */
+}
+
+/* ========== NAVIGATION MENU ========== */
+.header-right {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex: 0 0 45%;
+    flex-wrap: nowrap;
+}
+
+header ul {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+    flex: 1;
+}
+
+header ul li {
+    list-style: none;
+    position: relative;
+}
+
+header ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 600;
+    text-transform: uppercase;
+    padding: 10px 15px;
+    transition: color 0.3s ease-in-out;
+    font-size: 14px;
+}
+
+header ul li a:hover {
+    color: #EEA61A;
+}
+
+/* Dropdown Menu */
+header ul li ul.dropdown {
+    width: 200px;
+    background-color: #4F0003;
+    position: absolute;
+    display: none;
+    top: 100%;
+    left: 0;
+    padding: 10px 0;
+    border-radius: 5px;
+}
+
+header ul li ul.dropdown li {
+    display: block;
+    padding: 10px 15px;
+}
+
+header ul li ul.dropdown li a {
+    color: white;
+    display: block;
+    transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+header ul li ul.dropdown li a:hover {
+    background-color: #EEA61A;
+    color: #4F0003;
+    border-radius: 3px;
+}
+
+header ul li:hover ul.dropdown {
+    display: block;
+}
+
+/* ========== USER ICON & PROFILE ========== */
+.user-icon-container {
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+    padding: 0;
+    height: 100%;
+}
+
+.user-icon {
+    width: 30px;
+    height: 30px;
+    filter: invert(100%);
+    transition: transform 0.3s ease-in-out;
+}
+
+.user-icon-container:hover .user-icon {
+    transform: scale(1.1);
+}
+
+/* Update User Icon Size */
+
+/* Main user icon styling */
+#user-btn {
+    font-size: 26px; /* Increased from 18px */
+    color: #fff;
+    cursor: pointer;
+    height: 45px; /* Increased from 35px */
+    width: 45px; /* Increased from 35px */
+    line-height: 45px; /* Increased from 35px */
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    margin-top: 0;
+}
+
+#user-btn:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #EEA61A;
+    transform: scale(1.1); /* Added scale effect on hover */
+}
+
+/* Profile dropdown container styling */
+.profile {
+    position: fixed;
+    top: 100px;
+    right: 20px;
+    background-color: white;
+    border-radius: 0.5rem;
+    padding: 2rem;
+    text-align: center;
+    width: 30rem;
+    transform: scale(0);
+    transform-origin: top right;
+    transition: 0.2s linear;
+    z-index: 1000;
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.1);
+    border: 1px solid rgba(0,0,0,0.1);
+}
+
+.profile.active {
+    transform: scale(1);
+}
+
+/* Add these button styles from style.css to make header self-contained */
+.profile .btn,
+.profile .option-btn,
+.profile .delete-btn {
+    display: block;
+    width: 100%;
+    margin-top: 0.5rem;
+    border-radius: 0.5rem;
+    padding: 0.8rem;
+    font-size: 1rem;
+    color: white;
+    cursor: pointer;
+    text-align: center;
+    text-transform: capitalize;
+    transition: all 0.2s linear;
+}
+
+.profile .btn {
+    background-color: #4F0003;
+}
+
+.profile .option-btn {
+    background-color: #EEA61A;
+}
+
+.profile .delete-btn {
+    background-color: #e74c3c;
+}
+
+.profile .btn:hover,
+.profile .option-btn:hover,
+.profile .delete-btn:hover {
+    background-color: #333;
+    color: white;
+    text-decoration: none;
+}
+
+.profile .name {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+.profile .flex-btn {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.profile .flex-btn a {
+    flex-basis: calc(50% - 5px);
+    margin: 0;
+}
+
+/* Add this to your existing CSS file */
+
+/* Remove underline from Login/Register buttons */
+.profile .flex-btn a,
+.profile .btn,
+.profile .option-btn,
+.profile .delete-btn {
+    text-decoration: none !important;
+}
+
+/* Make sure hover state also doesn't show underline */
+.profile .flex-btn a:hover,
+.profile .btn:hover,
+.profile .option-btn:hover,
+.profile .delete-btn:hover {
+    text-decoration: none !important;
+}
+
+/* ========== CONTENT SPACING ========== */
+.main-content {
+    margin-top: 110px;
+    padding: 20px;
+}
+
+/* ========== RESPONSIVE DESIGN ========== */
+@media (max-width: 1024px) {
+    /* Header Layout */
+    header {
+        height: auto;
+        flex-direction: column; 
+        padding: 10px;
+    }
+
+    header .logo-container {
+        width: 100%;
+        justify-content: center;
+        margin-bottom: 10px;
+    }
+    
+    /* Navigation now moves up */
+    .header-right {
+        width: 100%;
+        justify-content: center;
+        margin-top: 5px;
+    }
+
+    header .logo-container {
+        width: 100%;
+        justify-content: center;
+        margin-bottom: 5px;
+    }
+
+    header .logo-container img {
+        height: 60px;
+    }
+
+    header .logo h3 {
+        font-size: 20px;
+    }
+    
+    /* Navigation */
+    .header-right {
+        width: 100%;
+        justify-content: center;
+        margin: 3px 0;
+    }
+    
+    header ul.nav-menu {
+        display: flex;
+        justify-content: center;
+        width: auto;
+        flex-wrap: nowrap;
+        margin: 0;
+        padding: 0;
+    }
+
+    header ul.nav-menu li {
+        display: inline-block;
+        margin: 0 2px;
+    }
+
+    header ul.nav-menu li a {
+        padding: 6px 8px;
+        font-size: 12px;
+    }
+
+    /* User Icon */
+    .user-icon-container {
+        margin-left: 5px;
+        padding: 0;
+        height: auto;
+    }
+    
+    #user-btn {
+        height: 40px; /* Increased from 30px */
+        width: 40px; /* Increased from 30px */
+        line-height: 40px; /* Increased from 30px */
+        font-size: 22px; /* Increased from 16px */
+    }
+
+    /* Profile Dropdown */
+    .profile {
+        top: 160px;
+        right: 50%;
+        transform: translateX(50%) scale(0);
+        width: 90%;
+        max-width: 300px;
+    }
+
+    .profile.active {
+        transform: translateX(50%) scale(1);
+    }
+}
+
+/* Improved Profile Dropdown Responsive Positioning */
+@media (max-width: 768px) {
+    /* Fix the profile dropdown for mobile */
+    .profile {
+        position: fixed;
+        top: 170px !important; /* Position it below header */
+        left: 50% !important;
+        right: auto !important;
+        transform: translateX(-50%) scale(0);
+        width: 280px;
+        max-width: 90%;
+        padding: 1.5rem;
+        z-index: 9999;
+    }
+    
+    .profile.active {
+        transform: translateX(-50%) scale(1);
+    }
+    
+    /* Make login/register buttons more touch-friendly */
+    .profile .flex-btn {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+    
+    .profile .option-btn {
+        padding: 10px;
+        width: 100%;
+        font-size: 16px;
+        min-height: 44px; /* Better for touch */
+    }
+}
+
+@media (max-width: 768px) {
+    header .logo h3 {
+        font-size: 18px;
+    }
+
+    .profile {
+        width: 28rem;
+        right: 10px;
+    }
+}
+
+/* Further refinements for very small screens */
+@media (max-width: 480px) {
+    .profile {
+        top: 150px !important;
+        width: 260px;
+    }
+    
+    .profile .name {
+        font-size: 16px;
+        margin-bottom: 12px;
+    }
+}
+
+@media (max-width: 600px) {
+    /* Header Sizing */
+    header {
+        padding: 5px;
+    }
+    
+    header .logo-container {
+        margin-bottom: 3px;
+    }
+    
+    header .logo-container img {
+        height: 45px;
+    }
+
+    header .logo h1 {
+        font-size: 14px;
+    }
+
+    header .logo h3 {
+        font-size: 16px;
+    }
+
+    /* Navigation */
+    .header-right {
+        margin: 2px 0;
+    }
+    
+    header ul.nav-menu {
+        gap: 0;
+    }
+
+    header ul.nav-menu li {
+        margin: 2px;
+    }
+
+    header ul.nav-menu li a {
+        padding: 4px 6px;
+        font-size: 11px;
+    }
+
+    /* User Icon */
+    #user-btn {
+        height: 36px; /* Increased from 26px */
+        width: 36px; /* Increased from 26px */
+        line-height: 36px; /* Increased from 26px */
+        font-size: 20px; /* Increased from 14px */
+    }
+
+    /* Profile Dropdown */
+    .profile {
+        top: 140px;
+        padding: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    header .logo-container img {
+        height: 40px;
+    }
+
+    header .logo h3 {
+        font-size: 14px;
+    }
+    
+    .main-content {
+        margin-top: 130px;
+    }
+
+    .profile {
+        width: 26rem;
+        right: 5px;
+        padding: 1.5rem;
+    }
+}
+
+/* Add these styles to your existing CSS file */
+
+/* Mobile Menu Toggle Button */
+.mobile-menu-toggle {
+    display: none;
+    font-size: 24px;
+    color: #fff;
+    cursor: pointer;
+    z-index: 100;
+    padding: 8px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+    margin-right: 10px;
+    transition: background-color 0.3s;
+}
+
+.mobile-menu-toggle:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Update responsive design for mobile menu */
+@media (max-width: 768px) {
+    /* Show mobile menu toggle */
+    .mobile-menu-toggle {
+        display: block;
+        position: absolute;
+        top: 30px;
+        right: 20px;
+    }
+    
+    /* Fix header layout for mobile */
+    header {
+        height: 100px;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+    }
+    
+    header .logo-container {
+        width: auto;
+        margin-bottom: 0;
+        flex: 1;
+    }
+    
+    /* Mobile slide-out navigation */
+    .header-right {
+        position: fixed;
+        top: 0;
+        right: -80%;
+        width: 80%;
+        height: 100vh;
+        background: #4F0003;
+        flex-direction: column;
+        justify-content: flex-start;
+        padding-top: 70px;
+        transition: right 0.3s ease;
+        overflow-y: auto;
+        z-index: 98;
+    }
+    
+    .header-right.active {
+        right: 0;
+    }
+    
+    /* Vertical menu for mobile */
+    header ul.nav-menu {
+        flex-direction: column;
+        width: 100%;
+        align-items: flex-start;
+    }
+    
+    header ul.nav-menu li {
+        width: 100%;
+        margin: 0;
+    }
+    
+    header ul.nav-menu li a {
+        display: block;
+        padding: 15px 20px;
+        font-size: 16px;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    
+    /* User icon positioning */
+    .user-icon-container {
+        position: absolute;
+        top: 20px;
+        right: 80px;
+        margin: 0;
+    }
+    
+    /* Profile dropdown improvement */
+    .profile {
+        top: 70px;
+        right: 10px;
+        width: 280px;
+    }
+}
+
+/* Further refinements for small phones */
+@media (max-width: 480px) {
+    .mobile-menu-toggle {
+        top: 20px;
+        right: 15px;
+    }
+    
+    .user-icon-container {
+        right: 65px;
+        top: 15px;
+    }
+}
+
+/* Dropdown styles */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #4F0003;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    border-radius: 4px;
+}
+
+.dropdown-content a {
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+.dropdown-content.active {
+    display: block;
+}
+
+/* Add this to your existing dropdown styles */
+/* Mobile view for dropdown links */
+@media (max-width: 768px) {
+    /* Hide the "Articles" dropdown button on mobile */
+    .nav-menu .dropdown > .dropbtn {
+        display: none;
+    }
+    
+    /* Show dropdown content by default on mobile */
+    .dropdown-content {
+        display: block;
+        position: static;
+        background-color: transparent;
+        box-shadow: none;
+        width: 100%;
+        padding: 0;
+    }
+    
+    /* Style each dropdown link as a regular menu item */
+    .dropdown-content a {
+        padding: 15px 20px;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+        text-align: left;
+        font-size: 16px;
+        color: #fff;
+    }
+    
+    /* Fix hover color for better visibility */
+    .dropdown-content a:hover {
+        background-color: rgba(238, 166, 26, 0.2);
+        color: #EEA61A;
+    }
+    
+    /* Remove rounded corners on mobile */
+    .dropdown-content {
+        border-radius: 0;
+    }
+}

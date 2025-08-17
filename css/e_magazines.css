@@ -1,0 +1,297 @@
+/* E-Magazines Page Styling */
+.magazines-container {
+    max-width: 1200px;
+    margin: 120px auto 50px;
+    padding: 0 20px;
+}
+
+.page-title {
+    font-size: 2.5rem;
+    color: #4F0003;
+    margin-bottom: 60px;
+    padding-top: 65px;
+    text-align: center;
+    font-family: 'Trajan Pro', serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Grid Layout - Updated for consistent horizontal flow */
+.magazines-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+}
+
+/* Magazine Cards - Updated for proper horizontal sizing */
+.magazine-card {
+    flex: 0 0 calc(33.333% - 30px);
+    max-width: calc(33.333% - 30px);
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #eee;
+    margin-bottom: 20px;
+}
+
+.magazine-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.magazine-img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-bottom: 3px solid #EEA61A;
+}
+
+.magazine-content {
+    padding: 20px;
+}
+
+.magazine-title {
+    font-size: 1.2rem;
+    color: #4F0003;
+    margin-bottom: 10px;
+    font-weight: bold;
+    font-family: 'gotham', serif;
+    line-height: 1.4;
+}
+
+.magazine-author {
+    color: #666;
+    margin-bottom: 10px;
+    font-style: italic;
+    font-size: 0.9rem;
+}
+
+.magazine-category {
+    display: inline-block;
+    background: #EEA61A;
+    color: #4F0003;
+    padding: 4px 12px;
+    border-radius: 30px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.magazine-excerpt {
+    color: #333;
+    margin-bottom: 20px;
+    line-height: 1.6;
+    font-size: 0.95rem;
+}
+
+/* Button Styles - Matching site-wide style */
+.read-more {
+    display: inline-block;
+    background: #4F0003;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background 0.3s ease;
+    text-align: center;
+    font-weight: 500;
+}
+
+.read-more:hover {
+    background: #630004;
+}
+
+.login-required {
+    display: inline-block;
+    background: #888;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    cursor: pointer;
+    text-align: center;
+    font-weight: 500;
+}
+
+/* Login Popup Styling */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.7);
+    z-index: 999;
+    display: none;
+}
+
+.login-message {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.3);
+    z-index: 1000;
+    text-align: center;
+    display: none;
+    width: 90%;
+    max-width: 400px;
+}
+
+.login-message h3 {
+    color: #4F0003;
+    margin-bottom: 20px;
+    font-family: 'gotham', serif;
+}
+
+.login-message p {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.login-btns {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.login-btn, .register-btn {
+    padding: 10px 24px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    min-width: 100px;
+}
+
+.login-btn {
+    background: #4F0003;
+    color: white;
+}
+
+.register-btn {
+    background: #EEA61A;
+    color: #4F0003;
+}
+
+.close-login {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #666;
+}
+
+/* No Magazines Message */
+.no-magazines {
+    text-align: center;
+    padding: 50px;
+    color: #666;
+    font-size: 1.2rem;
+    background: #f9f9f9;
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+/* Pagination styles - Consistent with site */
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+    flex-wrap: wrap;
+}
+
+.pagination a, .pagination span {
+    display: inline-block;
+    padding: 8px 16px;
+    text-decoration: none;
+    color: #4F0003;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    margin: 5px;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+    min-width: 40px;
+    text-align: center;
+}
+
+.pagination a:hover {
+    background-color: #f1f1f1;
+    border-color: #4F0003;
+}
+
+.pagination .active {
+    background-color: #4F0003;
+    color: white;
+    border: 1px solid #4F0003;
+}
+
+/* Responsive styles */
+@media (max-width: 992px) {
+    .magazine-card {
+        flex: 0 0 calc(50% - 30px);
+        max-width: calc(50% - 30px);
+    }
+}
+
+@media (max-width: 768px) {
+    .magazines-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 20px;
+    }
+    
+    .page-title {
+        font-size: 2rem;
+    }
+
+    .magazines-container {
+        margin-top: 100px;
+    }
+    
+    .magazine-img {
+        height: 180px;
+    }
+
+    .magazine-card {
+        flex: 0 0 calc(50% - 20px);
+        max-width: calc(50% - 20px);
+    }
+}
+
+@media (max-width: 480px) {
+    .magazines-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+    
+    .page-title {
+        font-size: 1.8rem;
+    }
+    
+    .pagination a, .pagination span {
+        padding: 6px 12px;
+        margin: 3px;
+    }
+    
+    .login-btns {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .magazines-container {
+        margin-top: 90px;
+    }
+
+    .magazine-card {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+}

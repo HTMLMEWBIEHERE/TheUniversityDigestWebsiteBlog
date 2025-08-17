@@ -1,0 +1,186 @@
+/* Make the page a flex container */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Main content stretches to fill space */
+main {
+    flex: 1;
+}
+
+.footer {
+    background-color: #4F0003;
+    color: #D9D9D9;
+    padding: 20px 0;
+    width: 100%;
+    font-family: "Poppins", sans-serif;
+    font-size: 12px;
+    margin-top: 50px;
+}
+
+.footer-container {
+    display: flex; 
+    flex-wrap: nowrap; 
+    justify-content: space-between;
+    align-items: center; 
+    width: 85%;
+    margin: 0 auto;
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 150px; 
+    text-align: left;
+    padding: 5px;
+    list-style: none; 
+}
+
+/* Logo section styling */
+
+
+/* Logo spinning animation */
+@keyframes spin-coin {
+    0% {
+        transform: rotateY(0deg);
+    }
+    50% {
+        transform: rotateY(180deg);
+    }
+    100% {
+        transform: rotateY(360deg);
+    }
+}
+
+.footer-logo {
+    max-width: 60px; /* Reduced from 80% */
+    height: auto;
+    animation: spin-coin 3s linear infinite;
+    transform-style: preserve-3d;
+    perspective: 10px;
+}
+
+/* Add a slight hover effect to pause the animation */
+.footer-logo:hover {
+    animation-play-state: paused;
+}
+
+.footer-logo-name {
+    font-size: 16px;
+    font-weight: bold;
+    color: #EEA61A;
+}
+
+.footer-section h4 {
+    font-size: 14px;
+    margin-bottom: 5px;
+    color: #EEA61A;
+    font-weight: bold;
+}
+
+.footer-section p,
+.footer-section a,
+.footer-section ul {
+    color: #D9D9D9;
+    font-size: 12px;
+    line-height: 1.4;
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+}
+
+.footer-section a {
+    text-decoration: none;
+    color: #FFFFFF;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.footer-section a:hover {
+    color: #EEA61A;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding: 5px 0;
+    margin-top: 10px;
+}
+
+.footer-bottom p {
+    margin: 0;
+    font-size: 10px;
+    color: #D9D9D9;
+}
+
+/* TABLET */
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column; 
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-section {
+        width: 100%; 
+        text-align: center;
+    }
+
+    .footer-section.logo {
+        padding: 15px 0;
+    }
+
+    .footer-logo {
+        width: 70px;
+        margin-bottom: 10px;
+    }
+
+    .footer-logo-name {
+        font-size: 14px;
+    }
+
+    .footer-section h4 {
+        font-size: 13px;
+        margin-bottom: 8px;
+    }
+
+    .footer-section p,
+    .footer-section a {
+        font-size: 11px;
+        line-height: 1.5;
+    }
+}
+
+/* MOBILE */
+@media (max-width: 480px) {
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        width: 100%;
+    }
+
+    .footer-section {
+        width: 100%;
+        text-align: center;
+    }
+
+    .footer-logo {
+        width: 60px;
+    }
+
+    .footer-logo-name {
+        font-size: 12px;
+    }
+
+    .footer-section h4 {
+        font-size: 12px;
+    }
+
+    .footer-section p,
+    .footer-section a {
+        font-size: 10px;
+    }
+}

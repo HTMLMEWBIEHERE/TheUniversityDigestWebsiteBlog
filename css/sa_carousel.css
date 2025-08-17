@@ -1,0 +1,198 @@
+/* Carousel Section Styles */
+.carousel-display {
+   padding: 20px;
+   text-align: center;
+}
+
+.carousel-container {
+   display: grid;
+   grid-template-columns: repeat(3, 1fr);
+   gap: 20px;
+   justify-items: center;
+}
+
+.carousel-item-container {
+   width: 100%;
+   max-width: 300px;
+   text-align: center;
+   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+   border-radius: 8px;
+   overflow: hidden;
+   background-color: #fff;
+}
+
+.carousel-item img {
+   width: 100%;
+   height: auto;
+   border-bottom: 2px solid #eee;
+}
+
+.carousel-controls {
+   padding: 10px;
+   display: flex;
+   justify-content: space-around;
+}
+
+.carousel-controls .btn {
+   padding: 5px 15px;
+   font-size: 14px;
+   text-decoration: none;
+}
+
+.carousel-controls .btn-primary {
+   background-color: #4f0003;
+   color: white;
+   border: none;
+}
+
+.carousel-controls .btn-danger {
+   background-color: #dc3545;
+   color: white;
+   border: none;
+}
+
+.carousel-controls .btn:hover {
+   opacity: 0.8;
+}
+
+@media (max-width: 768px) {
+   .carousel-container {
+       grid-template-columns: repeat(2, 1fr);
+   }
+}
+
+@media (max-width: 480px) {
+   .carousel-container {
+       grid-template-columns: 1fr;
+   }
+}
+
+
+section.edit-carousel {
+   padding: 30px;
+   max-width: 1200px;
+   margin: 0 auto;
+}
+
+h1.heading {
+   font-size: 24px;
+   text-align: center;
+   margin-bottom: 30px;
+}
+
+/* Message Styles */
+.message {
+   background-color: #f1f1f1;
+   padding: 10px;
+   border-radius: 5px;
+   margin-bottom: 15px;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   font-size: 14px;
+}
+
+.message span {
+   color: #333;
+}
+
+.message i {
+   cursor: pointer;
+   color: #333;
+   font-size: 16px;
+}
+
+.message i:hover {
+   color: #dc3545;
+}
+
+/* Carousel Image Management Styles */
+.carousel-images {
+   display: flex;
+   flex-wrap: wrap;
+   gap: 20px;
+   justify-content: center;
+}
+
+.carousel-item-box {
+   background-color: white;
+   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+   padding: 20px;
+   width: 300px;
+   text-align: center;
+   border-radius: 8px;
+   overflow: hidden;
+}
+
+.carousel-item-box img {
+   width: 100%;
+   height: auto;
+   border-bottom: 2px solid #eee;
+   margin-bottom: 15px;
+}
+
+.carousel-item-box p {
+   font-size: 16px;
+   color: #333;
+   margin-bottom: 20px;
+}
+
+/* Update Display Order Form */
+.update-order-form {
+   margin-bottom: 20px;
+}
+
+.update-order-form input[type="number"] {
+   padding: 10px;
+   width: 100px;
+   margin-bottom: 10px;
+   border: 1px solid #ddd;
+   border-radius: 5px;
+}
+
+.update-order-form button {
+   background-color: #4f0003; /* Custom color for edit button */
+   color: white;
+   padding: 10px 15px;
+   border: none;
+   border-radius: 5px;
+   cursor: pointer;
+}
+
+.update-order-form button:hover {
+   background-color: #3e0002; /* Darker shade of #4f0003 for hover */
+}
+
+/* Delete Carousel Image Form */
+.delete-form {
+   margin-top: 10px;
+}
+
+.delete-btn {
+   background-color: #f06292; /* Pink color */
+   color: white;
+   padding: 10px 15px;
+   border: none;
+   border-radius: 5px;
+   cursor: pointer;
+}
+
+.delete-btn:hover {
+   background-color: #e91e63; /* Darker pink on hover */
+}
+
+/* Empty State */
+.empty {
+   text-align: center;
+   font-size: 18px;
+   color: #777;
+   margin-top: 20px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+   .carousel-images {
+       flex-direction: column;
+       align-items: center;
+   }
+}

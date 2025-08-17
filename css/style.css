@@ -1,0 +1,1192 @@
+/* Table of Contents
+1. Imports and Variables
+2. Base and Reset
+3. Typography
+4. Layout Components
+5. Buttons and Form Elements
+6. Header and Navigation
+7. Post Components
+8. Comments
+9. Authors Section
+10. Categories Section
+11. Footer
+12. Utility Classes
+13. Media Queries
+*/
+
+/* 1. Imports and Variables */
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600&display=swap');
+
+:root {
+   /* Color Variables */
+   --main-color: maroon;
+   --red: #e74c3c;
+   --orange: #f39c12;
+   --black: #4F0003; /* Changed from #34495e to a true dark gray/near black */
+   --white: #fff;
+   --light-bg: #f5f5f5;
+   --light-color: #999;
+   
+   /* Typography */
+   --heading-font: 'Trajan Pro', serif;
+   --body-font: 'Gotham', sans-serif;
+   
+   /* Layout */
+   --border: .2rem solid var(--black);
+   --box-shadow: 0 .5rem 1rem rgba(0,0,0,.1);
+   --section-spacing: 2rem;
+   --container-max-width: 1200px;
+}
+
+/* 2. Base and Reset */
+* {
+   font-family: var(--body-font);
+   font-weight: bold;
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+   outline: none;
+   border: none;
+   text-decoration: none;
+}
+
+*::selection {
+   background-color: var(--main-color);
+   color: var(--white);
+}
+
+html {
+   font-size: 62.5%;
+   overflow-x: hidden;
+   scroll-behavior: smooth;
+   scroll-padding-top: 7rem;
+}
+
+body {
+   background-color: var(--light-bg);
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+   height: .5rem;
+   width: 1rem;
+}
+
+::-webkit-scrollbar-track {
+   background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+   background-color: var(--main-color);
+}
+
+/* 3. Typography */
+.heading,
+.authors .heading,
+.categories .heading,
+.posts-container .heading {
+   font-family: var(--heading-font);
+   font-weight: bold;
+   font-size: 5.5rem;
+   color: var (--black);
+   text-align: center;
+   margin-bottom: 2rem;
+   text-transform: capitalize;
+}
+
+.headingpost {
+   font-family: var(--heading-font);
+   font-weight: bold;
+   font-size: 5.5rem;
+   color: var(--black);
+   text-transform: capitalize;
+   margin-bottom: 2rem;
+   text-align: center;
+}
+
+/* 4. Layout Components */
+section {
+   padding: var(--section-spacing);
+   margin: 0 auto;
+   max-width: var(--container-max-width);
+}
+
+/* Common Section Spacing */
+.posts-container,
+.authors,
+.categories {
+   margin-top: 180px;
+   padding: 20px;
+}
+
+/* 5. Buttons and Form Elements */
+.btn,
+.delete-btn,
+.option-btn,
+.inline-btn,
+.inline-option-btn,
+.inline-delete-btn {
+   margin-top: 1rem;
+   border-radius: .5rem;
+   cursor: pointer;
+   font-size: 1.8rem;
+   color: var(--white);
+   padding: 1.2rem 3rem;
+   text-transform: capitalize;
+   text-align: center;
+}
+
+.inline-btn,
+.inline-option-btn,
+.inline-delete-btn {
+   display: inline-block;
+   margin-right: 1rem;
+}
+
+.btn,
+.delete-btn,
+.option-btn {
+   display: block;
+   width: 100%;
+}
+
+.inline-btn,
+.btn {
+   background-color: var(--main-color);
+}
+
+.inline-delete-btn,
+.delete-btn {
+   background-color: var(--red);
+}
+
+.inline-option-btn,
+.option-btn {
+   background-color: var(--orange);
+}
+
+.btn:hover,
+.delete-btn:hover,
+.option-btn:hover,
+.inline-btn:hover,
+.inline-delete-btn:hover,
+.inline-option-btn:hover {
+   background-color: var(--black);
+}
+
+.flex-btn {
+   display: flex;
+   gap: 1rem;
+}
+
+.more-btn .inline-btn {
+   background-color: var(--main-color);
+}
+
+/* Form Elements */
+.form-container {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   min-height: calc(100vh - 16rem);
+   margin-top: 120px !important; /* Add space below the fixed navbar */
+}
+
+.form-container form {
+   background-color: var(--white);
+   border-radius: .5rem;
+   border: var(--border);
+   box-shadow: var(--box-shadow);
+   padding: 2rem;
+   text-align: center;
+   width: 50rem;
+}
+
+.form-container form h3 {
+   font-size: 2.5rem;
+   color: var (--black);
+   text-transform: uppercase;
+   margin-bottom: 1rem;
+}
+
+.form-container form p {
+   padding-top: 1.5rem;
+   font-size: 2rem;
+   color: var (--light-color);
+}
+
+.form-container form p a {
+   color: var(--orange);
+}
+
+.form-container form p a:hover {
+   text-decoration: underline;
+   color: var(--black);
+}
+
+.form-container form .box {
+   width: 100%;
+   background-color: var(--light-bg);
+   padding: 1.4rem;
+   font-size: 1.8rem;
+   color: var(--black);
+   margin: 1rem 0;
+   border: var(--border);
+   border-radius: .5rem;
+}
+
+/* 7. Post Components */
+.posts-container .box-container {
+   display: grid;
+   grid-template-columns: repeat(minmax(33rem, 1fr));
+   gap: 1.5rem;
+   align-items: flex-start;
+   justify-content: center;
+}
+
+.posts-container .box-container .box {
+   border: var(--border);
+   box-shadow: var(--box-shadow);
+   border-radius: .5rem;
+   background-color: var(--white);
+   padding: 2rem;
+   overflow: hidden;
+}
+
+.posts-container .box-container .box .post-admin {
+   display: flex;
+   align-items: center;
+   margin-bottom: 15px;
+}
+
+.posts-container .box-container .box .post-admin i {
+   text-align: center;
+   height: 4.5rem;
+   width: 5rem;
+   line-height: 4.2rem;
+   font-size: 1.5rem;
+   border: var(--border);
+   border-radius: .5rem;
+   background-color: var(--light-bg);
+   color: #4F0003;
+   margin-right: 10px;
+}
+
+.posts-container .box-container .box .post-admin a {
+   font-size: 2rem;
+   color: var(--main-color);
+}
+
+.posts-container .box-container .box .post-admin a:hover {
+   color: var(--black);
+}
+
+.posts-container .box-container .box .post-admin div {
+   font-size: 1.5rem;
+   margin-top: .2rem;
+   color: var(--light-color);
+}
+
+.posts-container .box-container .box .post-admin div span {
+   margin-right: 15px;
+}
+
+.posts-container .box-container .box .post-image {
+   width: 100%;
+   border-radius: .5rem;
+   margin-bottom: 2rem;
+}
+
+.posts-container .box-container .box .post-title {
+   font-size: 2rem;
+   color: var(--black);
+   overflow: hidden;
+   text-overflow: ellipsis;
+   white-space: nowrap;
+   margin-bottom: 1rem;
+}
+
+.posts-container .box-container .box .post-content {
+   font-size: 2rem;
+   line-height: 1.5;
+   padding: .5rem 0;
+   color: var(--light-color);
+   white-space: pre-line;
+   overflow: hidden;
+}
+
+.posts-container .box-container .box .post-content::after {
+   content: '...';
+}
+
+.posts-container .box-container .box .post-cat {
+   display: block;
+   margin-top: 2rem;
+   font-size: 1.7rem;
+   color: var(--main-color);
+}
+
+.posts-container .box-container .box .post-cat i {
+   margin-right: .5rem;
+   color: var(--light-color);
+}
+
+.posts-container .box-container .box .post-cat:hover {
+   color: var(--black);
+}
+
+.posts-container .box-container .box .icons {
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   gap: 1rem;
+   background-color: var(--light-bg);
+   border-radius: .5rem;
+   padding: 1.5rem 2rem;
+   border: var(--border);
+   margin-top: 2rem;
+}
+
+.posts-container .box-container .box .icons button {
+   cursor: pointer;
+}
+
+.posts-container .box-container .box .icons i {
+   margin-right: .5rem;
+   font-size: 2rem;
+   color: var(--light-color);
+}
+
+.posts-container .box-container .box .icons span {
+   font-size: 2rem;
+   color: var(--main-color);
+}
+
+.posts-container .box-container .box .icons *:hover {
+   color: var(--black);
+}
+
+/* Post Filters */
+.post-filters {
+   display: flex;
+   flex-wrap: wrap;
+   align-items: center;
+   justify-content: space-between;
+   margin-bottom: 2rem;
+   background-color: var(--white);
+   padding: 1.5rem;
+   border-radius: 0.5rem;
+   box-shadow: var(--box-shadow);
+   border: var(--border);
+}
+
+.filter-container {
+   background: var(--white);
+   border-radius: .5rem;
+   box-shadow: var(--box-shadow);
+   padding: 2rem;
+   margin-bottom: 2rem;
+   width: 100%;
+   max-width: 1200px;
+   margin-left: auto;
+   margin-right: auto;
+}
+
+.filter-container label {
+   margin-right: 1rem;
+   font-family: var(--body-font);
+   font-size: 1.6rem;
+   color: var(--black);
+   font-weight: bold;
+}
+
+.filter-container select {
+   padding: 0.8rem 1.5rem;
+   border: 1px solid #ddd;
+   border-radius: 0.5rem;
+   font-size: 1.5rem;
+   cursor: pointer;
+   background-color: var(--light-bg);
+   color: var(--black);
+}
+
+.filter-container select:focus {
+   border-color: var(--main-color);
+   outline: none;
+}
+
+/* Enhanced filter container styling */
+.filter-container {
+    background: var(--white);
+    border-radius: .5rem;
+    box-shadow: var(--box-shadow);
+    padding: 2rem;
+    margin-bottom: 3rem;
+    width: 100%;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.filter-form {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.filter-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.filter-group label {
+    font-size: 1.8rem;
+    margin-bottom: 0.8rem;
+    color: var(--black);
+}
+
+.filter-group select,
+.filter-group input {
+    padding: 1.2rem;
+    font-size: 1.6rem;
+    border: var(--border);
+    border-radius: .5rem;
+    background-color: var(--light-bg);
+}
+
+.filter-buttons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+    grid-column: 1 / -1;
+}
+
+.filter-btn {
+    background-color: var(--main-color);
+    color: #fff;
+    padding: 1.2rem 2.5rem;
+    border: none;
+    border-radius: .5rem;
+    cursor: pointer;
+    font-size: 1.6rem;
+    flex: 1;
+}
+
+.clear-filter-btn {
+    background-color: #6c757d;
+    color: #fff;
+    padding: 1.2rem 2.5rem;
+    border-radius: .5rem;
+    font-size: 1.6rem;
+    text-align: center;
+    text-decoration: none;
+    flex: 1;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+    .filter-container {
+        padding: 1.5rem;
+    }
+    
+    .filter-form {
+        grid-template-columns: 1fr;
+    }
+    
+    .filter-buttons {
+        flex-direction: column;
+    }
+    
+    .filter-btn, .clear-filter-btn {
+        width: 100%;
+    }
+}
+
+/* 8. Comments */
+.comments-container .comment-title {
+   background-color: var(--black);
+   color: var(--white);
+   padding: 1.5rem;
+   font-size: 2rem;
+   border-radius: .5rem;
+   border-bottom-left-radius: 0;
+   border-bottom-right-radius: 0;
+}
+
+.comments-container .add-comment {
+   border: var(--border);
+   margin-bottom: 2rem;
+   box-shadow: var(--box-shadow);
+   border-radius: .5rem;
+   padding: 2rem;
+   background-color: var(--white);
+   border-top-left-radius: 0;
+   border-top-right-radius: 0;
+}
+
+.comments-container .add-comment p {
+   font-size: 2rem;
+   color: var(--light-color);
+   margin-bottom: 1rem;
+}
+
+.comments-container .add-comment p i {
+   margin-right: 1rem;
+}
+
+.comments-container .add-comment p a {
+   color: var(--main-color);
+}
+
+.comments-container .add-comment p a:hover {
+   text-decoration: underline;
+   color: var(--black);
+}
+
+.comments-container .add-comment textarea {
+   width: 100%;
+   border-radius: .5rem;
+   background-color: var(--light-bg);
+   padding: 1.5rem 2rem;
+   margin: 1rem 0;
+   border: var(--border);
+   font-size: 2rem;
+   color: var(--black);
+   height: 15rem;
+   resize: none;
+}
+
+.comments-container .user-comments-container {
+   display: grid;
+   gap: 2.5rem;
+   border: var(--border);
+   box-shadow: var(--box-shadow);
+   border-radius: .5rem;
+   padding: 2rem;
+   background-color: var(--white);
+   border-top-left-radius: 0;
+   border-top-right-radius: 0;
+}
+
+.comments-container .user-comments-container .show-comments .post-title {
+   margin-bottom: 1rem;
+   font-size: 2rem;
+   color: var(--light-color);
+}
+
+.comments-container .user-comments-container .show-comments .post-title span {
+   color: var(--black);
+   line-height: 1.5;
+}
+
+.comments-container .user-comments-container .show-comments .post-title a {
+   color: var(--main-color);
+}
+
+.comments-container .user-comments-container .show-comments .post-title a:hover {
+   text-decoration: underline;
+}
+
+.comments-container .user-comments-container .show-comments .comment-user {
+   display: flex;
+   align-items: center;
+   gap: 1rem;
+   margin-bottom: 1.5rem;
+}
+
+.comments-container .user-comments-container .show-comments .comment-user i {
+   text-align: center;
+   height: 5rem;
+   width: 5rem;
+   line-height: 4.7rem;
+   font-size: 2rem;
+   border: var(--border);
+   border-radius: .5rem;
+   background-color: var(--light-bg);
+   color: var(--black);
+}
+
+.comments-container .user-comments-container .show-comments .comment-user span {
+   font-size: 2rem;
+   color: var(--main-color);
+}
+
+.comments-container .user-comments-container .show-comments .comment-user div {
+   font-size: 1.5rem;
+   margin-top: .2rem;
+   color: var(--light-color);
+}
+
+.comments-container .user-comments-container .show-comments .comment-text {
+   line-height: 1.5;
+   font-size: 1.7rem;
+   color: var (--light-color);
+}
+
+.comments-container .user-comments-container .show-comments .comment-box {
+   border-radius: .5rem;
+   background-color: var(--light-bg);
+   padding: 1.5rem 2rem;
+   font-size: 2rem;
+   color: var(--black);
+   width: 100%;
+   white-space: pre-line;
+   line-height: 1.5;
+   border: var(--border);
+}
+
+.comments-container .user-comments-container .show-comments textarea {
+   resize: none;
+   border: var(--border);
+}
+
+.comment-edit-form {
+   padding-bottom: 0;
+}
+
+.comment-edit-form p {
+   background-color: var(--black);
+   color: var(--white);
+   padding: 1.5rem;
+   font-size: 2rem;
+   border-radius: .5rem;
+   border-bottom-left-radius: 0;
+   border-bottom-right-radius: 0;
+}
+
+.comment-edit-form form {
+   border-bottom-left-radius: .5rem;
+   border-bottom-right-radius: .5rem;
+   border: var(--border);
+   padding: 2rem;
+   background-color: var(--white);
+   box-shadow: var(--box-shadow);
+}
+
+.comment-edit-form form textarea {
+   font-size: 2rem;
+   color: var (--black);
+   line-height: 1.5;
+   height: 15rem;
+   width: 100%;
+   resize: none;
+   background-color: var(--light-bg);
+   border: var(--border);
+   border-radius: .5rem;
+   padding: 1.5rem;
+   margin-bottom: .5rem;
+}
+
+/* 9. Authors Section */
+.authors .box-container {
+   display: grid;
+   grid-template-columns: repeat(auto-fit, minmax(33rem, 1fr));
+   gap: 1.5rem;
+   align-items: flex-start;
+   justify-content: center;
+}
+
+.authors .box-container .box {
+   border: var(--border);
+   border-radius: .5rem;
+   padding: 2rem;
+   background-color: var(--white);
+   box-shadow: var(--box-shadow);
+}
+
+.authors .box-container .box p {
+   padding-bottom: 1rem;
+   font-size: 2rem;
+   color: var(--light-color);
+}
+
+.authors .box-container .box p span {
+   color: var(--main-color);
+}
+
+.author-profile-pic {
+   width: 40px;
+   height: 40px;
+   border-radius: 50%;
+   object-fit: cover;
+   margin-right: 10px;
+}
+
+/* 10. Categories Section */
+.categories .box-container {
+   border: var(--border);
+   border-radius: .5rem;
+   padding: 1rem 2rem;
+   background-color: var(--white);
+   box-shadow: var(--box-shadow);
+}
+
+.categories .box-container .box {
+   padding: 1rem 0;
+   font-size: 2rem;
+}
+
+.categories .box-container .box span {
+   color: var(--light-color);
+   display: inline-block;
+   padding: .7rem 1rem;
+   border: var(--border);
+   background-color: var(--light-bg);
+   border-radius: .5rem;
+   text-align: center;
+}
+
+.categories .box-container .box a {
+   margin-left: 1.2rem;
+   color: var(--black);
+}
+
+.categories .box-container .box a:hover {
+   color: var(--main-color);
+   text-decoration: underline;
+}
+
+/* 12. Utility Classes */
+.message {
+   position: sticky;
+   top: 0;
+   max-width: 1200px;
+   margin: 0 auto;
+   background-color: var(--light-bg);
+   padding: 2rem;
+   display: flex;
+   align-items: center;
+   gap: 1rem;
+   justify-content: space-between;
+}
+
+.message span {
+   font-size: 2rem;
+   color: var(--black);
+}
+
+.message i {
+   font-size: 2.5rem;
+   color: var(--red);
+   cursor: pointer;
+}
+
+.message i:hover {
+   color: var(--black);
+}
+
+.empty {
+   border: var(--border);
+   border-radius: .5rem;
+   background-color: var(--white);
+   padding: 1.5rem;
+   text-align: center;
+   width: 100%;
+   font-size: 2rem;
+   text-transform: capitalize;
+   color: var(--red);
+   box-shadow: var(--box-shadow);
+}
+
+/* 13. Media Queries */
+@media (max-width: 991px) {
+   html {
+      font-size: 55%;
+   }
+}
+
+@media (max-width: 768px) {
+   body {
+      padding-bottom: 2rem; /* Reduced padding now that footer is removed */
+   }
+
+   #search-btn {
+      display: inline-block;
+   }
+
+   .header .flex .search-form {
+      position: absolute;
+      top: 99%;
+      left: 0;
+      right: 0;
+      border-left: none;
+      border-right: none;
+      border-radius: 0;
+      width: 100%;
+      background-color: var(--main-color);
+      box-shadow: var(--box-shadow);
+      padding: 2rem;
+      clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+      transition: .2s linear;
+   }
+
+   .header .flex .search-form.active {
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+   }
+   
+   .post-filters {
+      flex-direction: column;
+      align-items: flex-start;
+   }
+   
+   .filter-container {
+      width: 100%;
+      margin: 0.5rem 0;
+   }
+   
+   .filter-container select {
+      width: 100%;
+   }
+   
+   .form-container {
+      margin-top: 150px !important;
+   }
+
+   /* Heading text size fix */
+   .posts-container .heading {
+      font-size: 3.5rem;
+      word-wrap: break-word;
+      padding: 0 1rem;
+   }
+   
+   /* Filter form improvements */
+   .filter-form {
+      flex-direction: column;
+      align-items: stretch;
+   }
+   
+   .filter-group {
+      width: 100%;
+      margin-bottom: 1rem;
+   }
+   
+   .filter-btn, 
+   .clear-filter-btn {
+      width: 100%;
+      display: block;
+      margin-top: 1rem;
+   }
+   
+   /* Header responsive fixes */
+   .header .flex {
+      padding: 1.5rem;
+      position: relative;
+   }
+   
+   .header .flex .navbar {
+      position: absolute;
+      top: 99%;
+      left: 0;
+      right: 0;
+      background-color: var(--white);
+      border-top: var(--border);
+      clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+   }
+   
+   .header .flex .navbar.active {
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+   }
+}
+
+@media (max-width: 450px) {
+   html {
+      font-size: 50%;
+   }
+
+   .heading {
+      font-size: 3rem;
+   }
+   
+   .post-filters {
+      padding: 1rem;
+   }
+
+   .filter-container label {
+      font-size: 1.4rem;
+   }
+
+   .filter-container select {
+      font-size: 1.3rem;
+      padding: 0.6rem 1rem;
+   }
+
+   .posts-container {
+      padding: 1rem;
+      margin-top: 120px;
+   }
+   
+   .posts-container .heading {
+      font-size: 2.8rem;
+   }
+   
+   /* Fix author name overflow */
+   .post-admin {
+      flex-wrap: wrap;
+   }
+   
+   .post-admin a {
+      font-size: 1.6rem !important;
+      word-break: break-word;
+   }
+}
+
+/* Add a specific class for the search container in posts.php */
+.search-container {
+   display: flex;
+   align-items: center;
+   padding: 1rem;
+}
+
+.search-container form {
+   width: 100%;
+   display: flex;
+}
+
+.search-container input {
+   flex: 1;
+   padding: 1.2rem;
+   font-size: 1.6rem;
+   border: var(--border);
+   border-radius: .5rem 0 0 .5rem;
+   background-color: var(--light-bg);
+}
+
+.search-container button {
+   background: var(--main-color);
+   color: var(--white);
+   border: none;
+   padding: 1.2rem;
+   border-radius: 0 .5rem .5rem 0;
+   cursor: pointer;
+}
+
+/* WIDER COMMENT BOXES - Add at the end of your file */
+.comments-container {
+   max-width: 1200px;
+   margin: 0 auto;
+   width: 100%;
+}
+
+.comments-container .user-comments-container {
+   width: 100%;
+   padding: 2.5rem;
+}
+
+.comments-container .user-comments-container .show-comments {
+   width: 100%;
+}
+
+.comments-container .user-comments-container .show-comments .comment-box {
+   width: 100%;
+   padding: 2rem;
+   font-size: 1.8rem;
+   margin-bottom: 1.5rem;
+}
+
+/* Make comment form wider too */
+.comments-container .add-comment {
+   width: 100%;
+   padding: 1.5rem;
+}
+
+.comments-container .add-comment textarea {
+   width: 100%;
+   padding: 2rem;
+}
+
+/* Fix for mobile devices */
+@media (max-width: 768px) {
+   .comments-container .user-comments-container,
+   .comments-container .add-comment {
+      padding: 1.5rem;
+   }
+}
+
+/* PROFILE IMAGES FOR POSTS - Add at the end of your CSS file */
+.post-admin .profile-image {
+   width: 5rem;
+   height: 5rem;
+   border-radius: 50%;
+   overflow: hidden;
+   margin-right: 1.5rem;
+   border: 1px solid #ddd;
+   background-color: var(--light-bg);
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+
+.post-admin .profile-image img {
+   width: 100%;
+   height: 100%;
+   object-fit: cover;
+}
+
+.post-admin .profile-image.no-image {
+   color: var(--main-color);
+   font-size: 2rem;
+}
+
+/* Profile Update Page Styles */
+.profile-update-container {
+  padding: 30px 20px;
+  min-height: auto; /* Remove fixed height to let content determine height */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f8f8f8;
+  margin-top: 120px; /* Keep margin to prevent header overlap */
+  margin-bottom: 40px; /* Keep margin to prevent footer overlap */
+}
+
+.profile-form {
+  width: 100%;
+  max-width: 800px; /* Increased from 500px to make it wider */
+  padding: 25px 30px; /* More horizontal padding, same vertical */
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  margin: 0 auto;
+}
+
+.profile-heading {
+  font-size: 24px;
+  color: #4F0003;
+  margin-bottom: 15px; /* Reduced from 20px */
+  text-align: center;
+  font-family: 'Cinzel', serif;
+}
+
+.password-heading {
+  margin-top: 20px; /* Reduced from 30px */
+  padding-top: 15px; /* Reduced from 20px */
+  border-top: 1px solid #eee;
+}
+
+.current-profile-details {
+  background-color: #f5f5f5;
+  border-left: 4px solid #4F0003;
+  padding: 12px 15px; /* Slightly reduced padding */
+  margin-bottom: 15px; /* Reduced from 20px */
+  border-radius: 4px;
+}
+
+.current-profile-details p {
+  margin-bottom: 8px;
+  font-size: 15px;
+  color: #333;
+}
+
+.current-profile-details p:last-child {
+  margin-bottom: 0;
+}
+
+.current-profile-details strong {
+  color: #4F0003;
+  font-weight: 600;
+}
+
+.profile-update-message {
+  background-color: #ffecec;
+  padding: 12px 15px;
+  border-radius: 4px;
+  border-left: 4px solid #ff4c4c;
+  margin-bottom: 15px;
+  color: #721c24;
+  font-size: 14px;
+}
+
+.profile-input-label {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 5px;
+  color: #555;
+  font-weight: 500;
+}
+
+.profile-input-field {
+  width: 100%;
+  padding: 10px 15px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin-bottom: 15px;
+  font-size: 15px;
+  color: #333;
+  background-color: #f9f9f9;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.profile-input-field:focus {
+  border-color: #4F0003;
+  box-shadow: 0 0 0 3px rgba(79, 0, 3, 0.1);
+  outline: none;
+}
+
+.profile-input-field::placeholder {
+  color: #999;
+}
+
+.profile-button-group {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.profile-update-btn {
+  flex: 1;
+  background-color: #4F0003;
+  color: white;
+  border: none;
+  padding: 12px 0;
+  font-size: 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.profile-update-btn:hover {
+  background-color: #3a0002;
+}
+
+.profile-cancel-btn {
+  flex: 1;
+  background-color: #f0f0f0;
+  color: #333;
+  border: 1px solid #ddd;
+  padding: 12px 0;
+  font-size: 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+
+.profile-cancel-btn:hover {
+  background-color: #e0e0e0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .profile-update-container {
+    padding: 20px 15px;
+    margin-top: 100px;
+  }
+  
+  .profile-form {
+    max-width: 650px; /* Still wider than original but appropriate for tablet */
+    padding: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .profile-update-container {
+    margin-top: 80px;
+    padding: 15px 10px;
+  }
+  
+  .profile-form {
+    max-width: 100%; /* Full width on very small screens */
+    padding: 15px;
+  }
+}

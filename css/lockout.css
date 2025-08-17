@@ -1,0 +1,19 @@
+/**
+ * Styling for the login lockout timer
+ */
+ .lockout-message {
+    color: #e74c3c;
+    font-weight: bold;
+    margin: 10px 0;
+    padding: 8px;
+    background-color: rgba(231, 76, 60, 0.1);
+    border-radius: 4px;
+    text-align: center;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.8; }
+    100% { opacity: 1; }
+}

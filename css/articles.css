@@ -1,0 +1,333 @@
+/* General Styles */
+:root {
+  --primary-color: #4F0003; /* Maroon */
+  --secondary-color: #4F0003;
+  --accent-color: #f39c12; /* Gold */
+  --text-color: #333;
+  --light-bg: #f8f8f8;
+  --border-color: #ddd;
+  --card-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+body {
+  font-family: 'gotham', sans-serif;
+  line-height: 1.6;
+  color: var(--text-color);
+  background-color: var(--light-bg);
+  margin: 0;
+  padding: 0;
+}
+
+/* Articles Section */
+.articles-section {
+  width: 95%;
+  max-width: 1200px;
+  margin: 8.5rem auto 2rem; /* Increased top margin from 2rem to 4.5rem */
+  padding-top: 1rem;
+}
+
+.article-card-wrapper {
+  background: white;
+  border-radius: 5px;
+  box-shadow: var(--card-shadow);
+  overflow: hidden;
+  margin-top: 20px; /* Reduced from 30px since we added more to articles-section */
+}
+
+.card-articles-header {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 1.2rem;
+  font-size: 1.4rem;
+  font-weight: bold;
+  text-align: center;
+  font-family: 'gotham', serif;
+  letter-spacing: 1px;
+  border-bottom: 3px solid var(--accent-color);
+}
+
+/* Filter Styles */
+.filter-container {
+  padding: 1.2rem;
+  background-color: #f5f5f5;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.filter-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  align-items: center;
+}
+
+.input-field {
+  flex: 1;
+  min-width: 200px;
+}
+
+.input-field input,
+.input-field select {
+  width: 100%;
+  padding: 0.7rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 0.95rem;
+  outline: none;
+}
+
+.input-field input:focus,
+.input-field select:focus {
+  border-color: var(--primary-color);
+}
+
+.button-container {
+  display: flex;
+  gap: 0.6rem;
+  margin-top: 0.3rem;
+  flex-wrap: wrap;
+}
+
+.inline-btn,
+.inline-option-btn,
+.read-more-btn {
+  padding: 0.7rem 1.2rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  display: inline-block;
+  font-size: 0.95rem;
+}
+
+.inline-btn {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.inline-option-btn {
+  background-color: #e0e0e0;
+  color: var(--text-color);
+}
+
+.inline-btn:hover {
+  background-color: var(--secondary-color);
+}
+
+.inline-option-btn:hover {
+  background-color: #d0d0d0;
+}
+
+/* Articles Display */
+.articles {
+  padding: 1.5rem;
+}
+
+.card-articles-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.card-article {
+  border: 1px solid var(--border-color);
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: var(--card-shadow);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background-color: white;
+  width: 100%;
+}
+
+.card-article:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.card-article-body {
+  display: flex;
+  flex-direction: column;
+  padding: 1.2rem;
+  word-break: break-word;
+}
+
+/* Fixed image size styles */
+.card-article-image {
+  width: 100%;
+  height: 300px; /* Taller images for vertical layout */
+  object-fit: cover; /* Maintains aspect ratio while covering area */
+  border-radius: 3px;
+  margin-bottom: 1rem;
+  background-color: #f5f5f5; /* Light background for missing images */
+}
+
+.card-article-title {
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+  color: var(--primary-color);
+  font-family: 'gotham', serif;
+  line-height: 1.3;
+}
+
+.card-article-excerpt {
+  color: #555;
+  margin-bottom: 1rem;
+  line-height: 1.6;
+  flex-grow: 1;
+  font-size: 0.9rem;
+}
+
+.card-article-footer {
+  display: flex;
+  justify-content: space-between;
+  color: #777;
+  font-size: 0.85rem;
+  margin-bottom: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid #f0f0f0;
+}
+
+.article-author {
+  font-style: italic;
+}
+
+.article-date {
+  color: #888;
+}
+
+.read-more-btn {
+  background-color: var(--accent-color);
+  color: var(--primary-color);
+  font-size: 0.9rem;
+  text-align: center;
+  width: 100%;
+  font-weight: bold;
+}
+
+.read-more-btn:hover {
+  background-color: #e6c200;
+  color: var(--secondary-color);
+}
+
+.no-articles {
+  text-align: center;
+  padding: 2rem;
+  color: #888;
+  font-style: italic;
+  font-size: 1.1rem;
+  background-color: #f9f9f9;
+  border-radius: 5px;
+  margin: 1rem 0;
+}
+
+/* Pagination */
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.pagination a {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background-color: #f0f0f0;
+    color: var(--text-color);
+    text-decoration: none;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+}
+
+.pagination a:hover {
+    background-color: #ddd;
+}
+
+.pagination a.active {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+/* For the expanded content */
+.card-article-full-content {
+  color: #333;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  white-space: pre-line; /* Preserves line breaks */
+}
+
+/* Transition for smooth expansion */
+.short-content,
+.card-article-full-content {
+  transition: all 0.3s ease;
+}
+
+/* Style the Read More button */
+.toggle-content {
+  cursor: pointer;
+  width: 100%;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .filter-form {
+        flex-direction: column;
+    }
+    
+    .input-field {
+        width: 100%;
+    }
+    
+    .card-articles-container {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    }
+}
+
+@media (max-width: 480px) {
+    .articles-section {
+        width: 100%;
+        padding: 0.5rem;
+    }
+    
+    .card-articles-container {
+        grid-template-columns: 1fr;
+        gap: 1.2rem;
+    }
+    
+    .button-container {
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .inline-btn,
+    .inline-option-btn {
+        width: 100%;
+        text-align: center;
+    }
+    
+    .card-article-footer {
+        flex-direction: column;
+        gap: 0.4rem;
+    }
+    
+    .card-articles-header {
+        font-size: 1.2rem;
+        padding: 1rem;
+    }
+    
+    .articles {
+        padding: 1rem;
+    }
+    
+    .pagination {
+        gap: 0.3rem;
+    }
+    
+    .pagination a {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.9rem;
+    }
+}

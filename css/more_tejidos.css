@@ -1,0 +1,740 @@
+/* ===== VARIABLES AND RESET ===== */
+:root {
+    --main-color: #4F0003;
+    --red: #e74c3c;
+    --orange: #4F0003;
+    --black: #34495e;
+    --white: #fff;
+    --light-bg: #f5f5f5;
+    --light-color: #999;
+    --border: .2rem solid var(--black);
+    --box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
+}
+
+* {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    outline: none;
+    border: none;
+}
+
+/* Import Gotham Pro font */
+@import url('https://fonts.cdnfonts.com/css/gotham-pro');
+
+/* ===== LAYOUT ===== */
+.main {
+    width: 90%;
+    margin: 0 auto;
+    padding: 50px 0;
+    position: relative;
+    top: 80px;
+}
+
+/* ===== CARD STYLES ===== */
+.card-2 {
+    display: flex;
+    align-items: center;
+    background-color: #f9f9f9;
+    border-radius: 12px;
+    padding: 30px;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.card-2 .card-content {
+    flex: 2;
+    padding-right: 20px;
+}
+
+.card-2 .card-content h2 {
+    color: #4F0003;
+    margin-bottom: 15px;
+    font-size: 28px;
+}
+
+.card-2 .logo-image {
+    flex: 1;
+    text-align: right;
+}
+
+.card-2 .logo-image img {
+    max-width: 200px;
+    height: auto;
+    border-radius: 8px;
+}
+
+/* ===== TEJIDO CARD STYLES ===== */
+.tejidos-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    padding: 20px;
+    margin: 20px 0;
+}
+
+.tejido-card {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.12);
+    overflow: hidden;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    gap: 10px;
+}
+
+.tejido-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Author section */
+.post-admin {
+    order: 1;
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.post-admin .fas {
+    margin-right: 10px;
+    color: #4F0003;
+}
+
+.author-name {
+    color: #4F0003;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+/* Image section */
+.tejido-image {
+    order: 2;
+    width: 100%;
+    height: auto;
+    min-height: 200px;
+    max-height: 300px;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.tejido-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 8px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    cursor: pointer;
+}
+
+.tejido-image img:hover {
+    transform: scale(1.05);
+    opacity: 0.9;
+}
+
+/* Content section */
+.tejido-content {
+    order: 4;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.tejido-content h3 {
+    order: 1;
+    font-size: 20px;
+    color: #4F0003;
+    margin: 0;
+}
+
+.tejido-content p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #555;
+}
+
+.description-wrapper {
+    order: 2;
+    margin: 0;
+}
+
+.tejido-description {
+    color: #555;
+    line-height: 1.6;
+    margin: 10px 0;
+}
+
+.tejido-description.collapsed {
+    max-height: 4.5em;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+
+.toggle-desc-btn {
+    background: none;
+    border: none;
+    color: #4F0003;
+    cursor: pointer;
+    padding: 5px 0;
+    font-weight: 600;
+    font-size: 0.85rem;
+    display: inline-block;
+    margin-top: 5px;
+    text-decoration: underline;
+}
+
+.toggle-desc-btn:hover {
+    color: #EEA61A;
+}
+
+.tejido-meta {
+    order: 3;
+    font-size: 14px;
+    color: #888;
+    margin: 10px 0;
+}
+
+.tejido-actions {
+    order: 6;
+    display: flex;
+    justify-content: flex-start;
+    margin-top: auto;
+}
+
+/* ===== MODAL STYLES ===== */
+/* Overlay */
+.modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 9999;
+}
+
+/* Image modal */
+.image-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10000;
+    text-align: center;
+    max-width: 90vw;
+    max-height: 90vh;
+}
+
+.image-modal img {
+    max-width: 100%;
+    max-height: 90vh;
+    border-radius: 4px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+    background: white;
+    padding: 5px;
+}
+
+.modal-close {
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    background: white;
+    color: #4F0003;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 30px;
+    font-size: 20px;
+    cursor: pointer;
+    z-index: 10001;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.modal-close:hover {
+    background: #4F0003;
+    color: white;
+}
+
+/* Detail modal */
+.tejido-detail-modal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10000;
+    width: 90%;
+    max-width: 1100px;
+    max-height: 95vh;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.4);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.detail-modal-content {
+    flex: 1;
+    padding: 25px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.detail-modal-header h2,
+.detail-modal-content h2 {
+    font-family: 'Gotham Pro', 'Montserrat', sans-serif;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    color: #4F0003;
+    font-size: 26px;
+    margin-bottom: 25px;
+    text-transform: capitalize;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 12px;
+}
+
+.detail-modal-body {
+    display: flex;
+    flex-direction: row;
+    gap: 25px;
+    overflow: hidden;
+    flex: 1;
+}
+
+.detail-modal-image {
+    flex: 1 1 400px;
+    max-height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    margin-bottom: 20px;
+    position: sticky;
+    top: 0;
+    align-self: flex-start;
+}
+
+.detail-modal-image img {
+    width: 100%;
+    height: auto;
+    max-height: 600px;
+    object-fit: contain;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.detail-modal-image img:hover {
+    transform: scale(1.02);
+}
+
+.detail-modal-info {
+    flex: 1.5;
+    overflow-y: auto;
+    max-height: 550px;
+    padding-right: 15px;
+    font-family: 'Gotham Pro', 'Montserrat', sans-serif;
+}
+
+.detail-modal-author {
+    margin-bottom: 15px;
+    font-size: 15px;
+    color: #555;
+}
+
+.detail-modal-author i {
+    color: #4F0003;
+    margin-right: 5px;
+}
+
+.detail-modal-description {
+    font-family: 'Gotham Pro', 'Montserrat', sans-serif;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    font-size: 16px;
+    letter-spacing: 0.01em;
+    color: #333;
+}
+
+.detail-modal-meta {
+    padding-top: 15px;
+    border-top: 1px solid #eee;
+    font-size: 14px;
+    color: #666;
+    font-family: 'Gotham Pro', 'Montserrat', sans-serif;
+}
+
+.close-modal {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 30px;
+    font-weight: bold;
+    color: #4F0003;
+    cursor: pointer;
+    z-index: 10001;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    transition: transform 0.2s ease;
+}
+
+.close-modal:hover {
+    transform: scale(1.2);
+    background: #4F0003;
+    color: white;
+}
+
+/* Scrollbar styling */
+.detail-modal-info::-webkit-scrollbar {
+    width: 6px;
+}
+
+.detail-modal-info::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+.detail-modal-info::-webkit-scrollbar-thumb {
+    background: #d0d0d0;
+    border-radius: 10px;
+}
+
+.detail-modal-info::-webkit-scrollbar-thumb:hover {
+    background: #4F0003;
+}
+
+/* ===== FILTER AND PAGINATION ===== */
+/* Filter Section */
+.tejidos-filter {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.tejidos-filter .filter-form {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    gap: 10px;
+}
+
+.tejidos-filter select,
+.tejidos-filter input,
+.tejidos-filter button {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.tejidos-filter select {
+    width: 200px;
+}
+
+.tejidos-filter button {
+    background-color: #4F0003;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.tejidos-filter button:hover {
+    background-color: #6B0A0A;
+}
+
+/* Empty State */
+.empty-state {
+    text-align: center;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+}
+
+.empty-state p {
+    font-size: 18px;
+    color: #888;
+    margin-bottom: 15px;
+}
+
+.empty-state .btn {
+    padding: 10px 20px;
+    background-color: #4F0003;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.empty-state .btn:hover {
+    background-color: #6B0A0A;
+}
+
+/* Pagination */
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.pagination a {
+    padding: 10px 15px;
+    margin: 0 5px;
+    text-decoration: none;
+    color: #333;
+    background-color: #ddd;
+    border-radius: 5px;
+}
+
+.pagination a:hover {
+    background-color: #4F0003;
+    color: white;
+}
+
+.pagination a.active {
+    background-color: #4F0003;
+    color: white;
+}
+
+/* ===== RESPONSIVE STYLES ===== */
+@media (max-width: 1200px) {
+    .tejidos-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .main {
+        top: 50px;
+        padding: 30px 0;
+    }
+
+    .card-2 {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .card-2 .card-content {
+        padding-right: 0;
+        margin-bottom: 20px;
+    }
+
+    .card-2 .logo-image {
+        text-align: center;
+    }
+
+    /* Tejido cards */
+    .tejidos-container {
+        gap: 15px;
+    }
+
+    .tejido-card {
+        padding: 12px;
+        gap: 8px;
+        display: grid;
+        grid-template-rows: auto auto 1fr auto auto;
+        grid-template-areas: 
+           "author"
+           "title"
+           "image"
+           "description"
+           "meta";
+        min-height: unset;
+        height: auto;
+    }
+    
+    .post-admin {
+        grid-area: author;
+        order: unset;
+        margin-bottom: 0;
+    }
+    
+    .tejido-content {
+        display: contents;
+    }
+    
+    .tejido-content h3 {
+        grid-area: title;
+        order: unset;
+        font-size: 18px;
+    }
+    
+    .tejido-image {
+        grid-area: image;
+        order: unset;
+        height: 0;
+        padding-bottom: 66%;
+        position: relative;
+        min-height: unset;
+        max-height: unset;
+    }
+    
+    .tejido-image img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+    
+    .description-wrapper {
+        grid-area: description;
+        order: unset;
+    }
+    
+    .tejido-meta {
+        grid-area: meta;
+        order: unset;
+        font-size: 12px;
+    }
+
+    .tejido-description {
+        font-size: 14px;
+        line-height: 1.4;
+    }
+
+    /* Modal adjustments */
+    .detail-modal-body {
+        flex-direction: column;
+    }
+    
+    .tejido-detail-modal {
+        width: 95%;
+        max-height: 90vh;
+        height: auto;
+    }
+    
+    .detail-modal-body {
+        max-height: none;
+    }
+    
+    .detail-modal-image {
+        position: relative;
+        max-height: 300px;
+        margin-bottom: 15px;
+        flex: 0 0 auto;
+    }
+    
+    .detail-modal-image img {
+        max-height: 300px;
+    }
+    
+    .detail-modal-content {
+        padding: 15px;
+    }
+    
+    .detail-modal-info {
+        max-height: 50vh;
+        flex: 1 1 auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    /* Center modal image on mobile */
+    .detail-modal-image {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        text-align: center;
+    }
+    
+    .detail-modal-image img {
+        width: auto;
+        max-width: 100%;
+        height: auto;
+        margin: 0 auto;
+        object-position: center;
+    }
+}
+
+@media (max-width: 576px) {
+    .tejidos-container {
+        grid-template-columns: 1fr;
+        padding: 10px;
+        gap: 20px;
+    }
+    
+    .tejido-card {
+        margin-bottom: 20px;
+        gap: 10px;
+    }
+    
+    .tejido-image {
+        padding-bottom: 56%;
+    }
+    
+    .tejidos-filter .filter-form {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .tejidos-filter .box {
+        width: 100%;
+    }
+
+    /* Mobile modal adjustments */
+    .detail-modal-content {
+        padding: 15px 12px;
+    }
+    
+    .detail-modal-image {
+        max-height: 200px;
+    }
+    
+    .detail-modal-image img {
+        max-height: 200px;
+    }
+    
+    .detail-modal-info {
+        max-height: 55vh;
+        padding-right: 10px;
+    }
+
+    /* Additional centering for small mobile screens */
+    .detail-modal-content {
+        align-items: center;
+    }
+    
+    .detail-modal-image {
+        padding: 0 10px;
+    }
+}
+
+.tejido-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover !important; 
+    border-radius: 8px;
+}
+
+@media (max-width: 768px) {
+    .tejido-image img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover !important;
+    }
+    
+    .detail-modal-image img {
+        object-fit: contain !important; /* Keep as contain */
+    }
+}

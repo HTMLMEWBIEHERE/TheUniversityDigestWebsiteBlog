@@ -1,0 +1,297 @@
+:root {
+    --primary-color: #4F0003;
+    --secondary-color: #8B0000;
+    --text-color: #333;
+    --background-color: #f4f4f4;
+    --white: #ffffff;
+}
+
+/* ========== Global Styles ========== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    line-height: 1.6;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+    background-color: var(--background-color);
+}
+
+.main {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* ========== Title Styling ========== */
+h1 {
+    background-color: var(--primary-color);
+    font-family: "Poppins", sans-serif;
+    width: 40%;
+    font-size: 28px;
+    font-weight: 700;
+    color: #EEA61A;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    padding: 15px 0;
+    margin: 20px auto;
+    position: relative;
+    border-radius: 5px;
+}
+
+h1::after {
+    content: "";
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-top: 15px solid var(--primary-color);
+}
+
+.logo-text h1 {
+    font-family: 'Cinzel', serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: #EEA61A;
+    letter-spacing: 1px;
+    margin: 0;
+}
+
+/* ========== Card-2 Layout ========== */
+.card-2 {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    background-color: var(--white);
+    border-radius: 12px;
+    margin: 100px auto 30px;
+    padding: 50px;
+    max-width: 900px;
+    gap: 20px;
+}
+
+.card-2 .logo-image,
+.card-2 .card-content {
+    flex: 1;
+    min-width: 300px;
+    padding: 15px;
+}
+
+.card-2 .logo-image img {
+    width: 250px;
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.card-2 .card-content {
+    text-align: center;
+}
+
+.card-2 .read-more-button {
+    margin-top: 10px;
+    align-self: center;
+}
+
+/* ========== Editorial Board & Staff Cards ========== */
+.editorial-container,
+.editorial-container2 {
+    text-align: center;
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+}
+
+.adviser-container h2,
+.editorial-container h2 {
+    text-align: center;
+    font-size: 28px;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+.editorial-cards,
+.editorial-container2 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* This centers the cards per row */
+    gap: 20px;
+    width: 100%;
+}
+
+/* Individual Cards */
+.card,
+.cards {
+    background: var(--white);
+    border-radius: 10px;
+    box-shadow: 0 8px 10px rgba(101, 10, 10, 0.2);
+    padding: 20px;
+    text-align: center;
+    border-top: 4px solid #EEA61A;
+    transition: transform 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    height: 350px;
+}
+
+.card:hover,
+.cards:hover {
+    transform: scale(1.05);
+}
+
+/* ========== Global Styles ========== */
+.card-image {
+    height: 250px; /* Set consistent height */
+    width: 250px; /* Set consistent width */
+    overflow: hidden;
+    margin-bottom: 10px;
+    border-radius: 50%; /* Maintain circular appearance */
+}
+
+.card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures images cover the area without distortion */
+    border-radius: 50%; /* Maintains round shape */
+    border: 3px solid var(--primary-color);
+    transition: transform 0.3s ease;
+}
+
+.card:hover img,
+.cards:hover img {
+    transform: scale(1.1); /* Optional zoom effect on hover */
+}
+
+.cards h2 {
+    font-size: 18px;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.cards p {
+    font-size: 14px;
+    color: black;
+}
+
+/* ========== Position Group Section ========== */
+.position-group {
+    margin-bottom: 30px;
+}
+
+.position-group h2 {
+    text-align: center;
+    color: var(--secondary-color);
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+}
+
+/* ========== Responsive Styles ========== */
+@media screen and (max-width: 1200px) {
+    .editorial-cards,
+    .editorial-container2 {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .card-2 {
+        flex-direction: column;
+        text-align: center;
+        padding: 30px;
+    }
+
+    .card-2 .logo-image img {
+        width: 200px;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .editorial-cards,
+    .editorial-container2 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .card-2 .card-content h2 {
+        font-size: 1.5rem;
+    }
+
+    .card-2 .logo-image img {
+        max-width: 200px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .editorial-cards,
+    .editorial-container2 {
+        grid-template-columns: 1fr;
+    }
+
+    .editorial-container h2 {
+        font-size: 24px;
+    }
+
+    .writers-container h1 {
+        font-size: 1.2rem;
+        padding: 10px 0;
+    }
+
+    .cards {
+        padding: 30px;
+    }
+
+    .card .card-content h2,
+    .cards .card-content h2 {
+        font-size: 0.9rem;
+    }
+
+    .card .card-content p,
+    .cards .card-content p {
+        font-size: 0.8rem;
+    }
+
+    .card-2 .logo-image img {
+        width: 150px;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .main {
+        padding: 0 10px;
+    }
+
+    .card-2 {
+        padding: 20px;
+    }
+
+    .card-2 .logo-image img {
+        max-width: 150px;
+    }
+
+    h1 {
+        width: 90%;
+        font-size: 22px;
+        padding: 10px 0;
+    }
+
+    .cards {
+        padding: 25px;
+    }
+
+    .card-image img {
+        width: 100px;
+        height: 100px;
+    }
+
+    .cards h2 {
+        font-size: 16px;
+    }
+
+    .cards p {
+        font-size: 12px;
+    }
+}
